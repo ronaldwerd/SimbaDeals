@@ -1,6 +1,11 @@
 simba_ad_engine = function($) {
 
+    $('img[simba-deals]').each(function() {
 
-    alert('it workedzz');
+        var code = $(this).attr('simba-deals');
+
+        
+
+    });
 
 };

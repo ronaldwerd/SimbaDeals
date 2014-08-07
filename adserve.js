@@ -45,7 +45,6 @@
             main();
         });
 
-
     } else {
 
         $ = window.jQuery;
@@ -53,15 +52,11 @@
     }
 
 
-
-
     function main() {
         $(document).ready(function($) {
 
             loadJavaScript("simba-ad-engine.js", function() {
-
                 simba_ad_engine($);
-
             });
 
         });
