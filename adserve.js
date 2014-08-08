@@ -56,6 +56,9 @@ crap = "ron";
                 if(scriptsLoaded == scripts.length) {
 
                     $(document).ready(function($) {
+
+                        $('head').append('<link rel="stylesheet" href="adserve.css" type="text/css" />');
+
                         simbaAdEngine($, _);
                     });
                 }
