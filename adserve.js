@@ -1,5 +1,8 @@
+crap = "ron";
+
 (function() {
 
+    var engine;
     var $;
 
     var loadJavaScript = function(url, callback) {
@@ -36,13 +39,28 @@
 
 
     function main() {
-        $(document).ready(function($) {
 
-            loadJavaScript("simba-ad-engine.js", function() {
-                simbaAdEngine($);
+        /*
+         * Load any plugin scripts here
+         */
+
+        var scripts = ['underscore.js','simba-ad-engine.js'];
+        var scriptsLoaded = 0;
+
+        for(var i = 0; i < scripts.length; i++) {
+
+            $.getScript(scripts[i], function() {
+
+                scriptsLoaded++;
+
+                if(scriptsLoaded == scripts.length) {
+
+                    $(document).ready(function($) {
+                        simbaAdEngine($, _);
+                    });
+                }
             });
-
-        });
+        }
     }
-
 })();
+

@@ -1,4 +1,4 @@
-simbaAdEngine = function($) {
+simbaAdEngine = function($, _) {
 
     var categoryCodes = [
         { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 5 }
@@ -35,18 +35,28 @@ simbaAdEngine = function($) {
         });
     }
 
-    $('img[simba-deals]').each(function() {
+    function refresh() {
 
-        var code = $(this).attr('simba-deals');
-        var element = this;
+        $('div[simba-deals]').each(function() {
 
-        queryForBanner(code, function(data) {
+            var code = $(this).attr('simba-deals');
+            var element = this;
 
-            var adBlock = data[0];
-            renderBanner(element, adBlock);
+            queryForBanner(code, function(data) {
+
+                var adBlock = data[0];
+                renderBanner(element, adBlock);
+            });
         });
-    });
+    }
+
+    //var val = _.template('<p>Sorry but it\'s: <%= data.answer %></p>', {answer: 'YES!'}, {variable: 'data'});
+    //document.write(val);
+
+
+    refresh();
 };
+
 
 /* Meta Data Reference */
 /*
