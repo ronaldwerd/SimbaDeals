@@ -1,58 +1,88 @@
+.BigBoxContainer {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    height: 250px;
+    width: 300px;
+    padding: 0px;
+    border: solid 1px #7d7d7d;
+}
 .simbaBigBox {
     width: 300px;
     cursor: pointer;
-    border: solid 1px #7d7d7d;
 }
 
 .simbaBigBox .smHeader {
     height: 53px;
-    background-image: url('/adgroups/bigbox/bigbox-header.png');
+    background-image: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/bigbox-header.png');
     border-bottom: solid 1px #dadada;
 }
 
 .simbaBigBox .smFooter {
     height: 46px;
-    background-image: url('/adgroups/bigbox/bigbox-footer.png');
+    background-image: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/bigbox-footer.png');
     border-top: solid 1px #dadada;
 }
 
+.simbaBigBox .smBody .productContainer {
+    overflow: hidden;
+    width: 111px;
+    display: inline-block;
+}
 .simbaBigBox .smBody img {
     float: left;
     height: 149px;
-    width: 111px;
+    width: 110px;
 }
 
 .simbaBigBox .smBody .meta {
+    display: table;
     float: right;
-    width: 189px;
+    width: 188px;
     height: inherit;
+    padding: 0px;
 }
 
 .simbaBigBox .smBody .meta .brand {
     font-size: 10px;
     color: #3e3a3b;
     display: block;
-    padding-bottom: 10px;
+    padding: 0px 0px 6px 0px;
 }
 
 .simbaBigBox .smBody .meta .description {
-    font-size: 12px;
+    font-size: 11.5px;
     color: #3e3a3b;
-    font-weight: bold;
+    letter-spacing: 0.025em;
+    font-weight: 600;
+    line-height: normal;
     display: block;
 }
 
 .simbaBigBox .smBody .meta .price {
-    display: block;
-    margin-top: 30px;
+    display: inline-block;
+    float: left;
+    height: 18px !important;
+    min-width: 34px;
+    margin-top: 10px;
     background-color: #f24e21;
     color: white;
-    font-family: arial;
-    font-weight: bold;
-    padding: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0px 6px;
+    line-height: 18px;
+}
+.simbaBigBox .smBody .meta .priceTag {
+    display: inline-block;
+    float: left;
+    height: 18px;
+    width: 10px;
+    margin-top: 10px;
+    background-image: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/price-tag.png');
 }
 
 .simbaBigBox .smBody .meta-inner {
+    display: table-cell;
+    vertical-align: middle;
     padding: 10px;
     text-align: left;
 }
@@ -60,6 +90,20 @@
 .simbaBigBox .smBody {
     background-color: #ececec;
     height: 149px;
+    width: 300px;
     border-top: #dadada;
     border-bottom: #dadada;
+}
+.simbaBigBox .smBody .nav {
+    height: 12px;
+    width: 36px;
+    top: 130px;
+    float: right;
+    position: relative;
+}
+.simbaBigBox .smBody .nav img {
+    height: 12px;
+    width: 12px;
+    padding-left: 2px;
+    float: left;
 }
