@@ -41,7 +41,7 @@ simbaAdEngine = function($, _) {
 
             var metaData = _.template('<span class="brand">Banna Republic</span>' +
                                       '<span class="description"><%= description %></span>' +
-                                      '<span class="price"><%= price %></span>',
+                                      '<span class="price">$<%= price %></span><span class="priceTag"></span>',
                                        { description: adBlock.name,
                                          price: adBlock.salePrice });
 

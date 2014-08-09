@@ -43,13 +43,25 @@
 }
 
 .simbaBigBox .smBody .meta .price {
-    display: block;
+    display: inline-block;
+    float: left;
+    height: 18px !important;
+	min-width: 34px;
     margin-top: 30px;
     background-color: #f24e21;
     color: white;
     font-family: arial;
-    font-weight: bold;
-    padding: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0px 6px;
+    line-height: 18px;
+}
+.simbaBigBox .smBody .meta .priceTag {
+	display: inline-block;
+	float: left;
+	height: 18px;
+	margin-top: 30px;
+	content: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/price-tag.png');
 }
 
 .simbaBigBox .smBody .meta-inner {
