@@ -58,6 +58,7 @@ simbaAdEngine = function($, _) {
 
         if(1 == 1) { // Assume bigbox is true filler logic
 
+
             var adBlock = adBlockCollection[0];
 
             var m = $.grep(merchantList, function(m) {
@@ -66,28 +67,33 @@ simbaAdEngine = function($, _) {
 
             var m = m[0];
 
-            var bodyImg = _.template('<img src="<%= src %>" alt="<%= alt %>" />',
+            console.log(m);
+
+            var bodyImg = _.template('<div style="productContainer"><img src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
             });
 
+
             var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                       '<span class="description"><%= description %></span>' +
-                                      '<span class="price"><%= price %></span>',
+                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span>',
                                        {
                                          merchant: m.name,
                                          description: adBlock.name,
                                          price: adBlock.salePrice
                                        });
 
+
             var template = _.template(
                 '<div class="simbaBigBox">' +
                 '<div class="smHeader"></div>' +
                 '<div class="smBody">' +
                 '<%= bodyImg %>' +
-                '<div class="meta"><div class="meta-inner"><%= metaData %></div></div>' +
-                '</div>' +
+                '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
+                '<div class="nav"><img src="http://clientfiles.sixaces.ca/sd/adgroups/bigbox/prev-btn.png" /><img src="http://clientfiles.sixaces.ca/sd/adgroups/bigbox/next-btn.png" /></div>' +
+                '</div></div>' +
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
 

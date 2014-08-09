@@ -43,7 +43,7 @@
          * Load any plugin scripts here
          */
 
-        var scripts = ['underscore.js','simba-ad-engine.js'];
+        var scripts = ['http://clientfiles.sixaces.ca/sd/underscore.js','http://clientfiles.sixaces.ca/sd/simba-ad-engine.js'];
         var scriptsLoaded = 0;
 
         for(var i = 0; i < scripts.length; i++) {
@@ -55,9 +55,7 @@
                 if(scriptsLoaded == scripts.length) {
 
                     $(document).ready(function($) {
-
-                        $('head').append('<link rel="stylesheet" href="adgroups/bigbox/style.css" type="text/css" />');
-
+                        $('head').append('<link rel="stylesheet" href="/adgroups/bigbox/style.css" type="text/css" />');
                         simbaAdEngine($, _);
                     });
                 }
@@ -65,4 +63,3 @@
         }
     }
 })();
-
