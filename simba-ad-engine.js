@@ -29,14 +29,34 @@ simbaAdEngine = function($, _) {
 
     var renderBanner = function(element, adBlock) {
 
-        var img = _.template('<img src="<%= src %>" alt="<%= alt %>" />',
-                              { src: adBlock.imageURL,
-                                alt: adBlock.name
-                              });
+        var template = null;
+
+        if(1 == 1) { // Assume bigbox is true filler logic
+
+            var bodyImg = _.template('<img src="<%= src %>" alt="<%= alt %>" />',
+            {
+                src: adBlock.imageURL,
+                alt: adBlock.name
+            });
+
+            var metaData = _.template('<span class="brand">Banna Republic</span>' +
+                                      '<span class="description"><%= description %></span>' +
+                                      '<span class="price"><%= price %></span>',
+                                       { description: adBlock.name,
+                                         price: adBlock.salePrice });
+
+            var template = _.template(
+                '<div class="simbaBigBox">' +
+                '<div class="smHeader"></div>' +
+                '<div class="smBody">' +
+                '<%= bodyImg %>' +
+                '<div class="meta"><div class="meta-inner"><%= metaData %></div></div>' +
+                '</div>' +
+                '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
+        }
 
 
-        $(element).addClass('sideAdBlock');
-        $(element).append(img);
+        $(element).append(template, null);
 
         $(element).click(function() {
             location.href = adBlock.deepLink;
@@ -52,15 +72,11 @@ simbaAdEngine = function($, _) {
 
             queryForBanner(code, function(data) {
 
-                var adBlock = data[0];
+                var adBlock = data[1];
                 renderBanner(element, adBlock);
             });
         });
     }
-
-    //var val = _.template('<p>Sorry but it\'s: <%= data.answer %></p>', {answer: 'YES!'}, {variable: 'data'});
-    //document.write(val);
-
 
     refresh();
 };

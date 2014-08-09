@@ -58,7 +58,7 @@ crap = "ron";
 
                     $(document).ready(function($) {
 
-                        $('head').append('<link rel="stylesheet" href="adserve.css" type="text/css" />');
+                        $('head').append('<link rel="stylesheet" href="adgroups/banrepublic/style.css" type="text/css" />');
 
                         simbaAdEngine($, _);
                     });

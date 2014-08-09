@@ -1,0 +1,62 @@
+.simbaBigBox {
+    width: 300px;
+    cursor: pointer;
+}
+
+.simbaBigBox .smHeader {
+    height: 53px;
+    background-image: url('/adgroups/banrepublic/bigbox-header.png');
+}
+
+.simbaBigBox .smFooter {
+    height: 47px;
+    background-image: url('/adgroups/banrepublic/bigbox-footer.png');
+}
+
+.simbaBigBox .smBody img {
+    float: left;
+    height: 149px;
+}
+
+.simbaBigBox .smBody .meta {
+    float: right;
+    width: 150px;
+    height: inherit;
+}
+
+.simbaBigBox .smBody .meta .brand {
+    font-size: 10px;
+    color: #3e3a3b;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.simbaBigBox .smBody .meta .description {
+    font-size: 12px;
+    color: #3e3a3b;
+    font-weight: bold;
+    display: block;
+}
+
+.simbaBigBox .smBody .meta .price {
+    display: block;
+    margin-top: 30px;
+    background-color: #f24e21;
+    color: white;
+    font-family: arial;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.simbaBigBox .smBody .meta-inner {
+    padding: 10px;
+    text-align: left;
+}
+
+.simbaBigBox .smBody {
+    background-color: #ececec;
+    height: 149px;
+    border-top: #dadada;
+    border-bottom: #dadada;
+}
+
