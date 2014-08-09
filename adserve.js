@@ -6,6 +6,7 @@ crap = "ron";
     var $;
 
     var loadJavaScript = function(url, callback) {
+
         var script_tag = document.createElement('script');
         script_tag.setAttribute("type","text/javascript");
         script_tag.setAttribute("src", url);

@@ -1,3 +1,13 @@
-body {
-    background-color: lightblue;
+.sideAdBlock {
+    width: 300px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.sideAdBlock-horizonal img {
+    width: 100%;
+}
+
+.sideAdBlock-vertical img {
+    height: 100%;
 }

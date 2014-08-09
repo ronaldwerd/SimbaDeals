@@ -28,8 +28,16 @@ simbaAdEngine = function($, _) {
     }
 
     var renderBanner = function(element, adBlock) {
-        $(element).attr('src',adBlock.imageURL);
-        $(element).attr('style','cursor: pointer');
+
+        var img = _.template('<img src="<%= src %>" alt="<%= alt %>" />',
+                              { src: adBlock.imageURL,
+                                alt: adBlock.name
+                              });
+
+
+        $(element).addClass('sideAdBlock');
+        $(element).append(img);
+
         $(element).click(function() {
             location.href = adBlock.deepLink;
         });
