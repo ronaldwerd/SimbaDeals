@@ -1,5 +1,3 @@
-crap = "ron";
-
 (function() {
 
     var engine;
