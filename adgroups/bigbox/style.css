@@ -77,7 +77,7 @@
 	height: 18px;
 	width: 10px;
 	margin-top: 10px;
-	content: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/price-tag.png');
+	background-image: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/price-tag.png');
 }
 
 .simbaBigBox .smBody .meta-inner {
