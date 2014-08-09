@@ -33,15 +33,15 @@ simbaAdEngine = function($, _) {
 
         if(1 == 1) { // Assume bigbox is true filler logic
 
-            var bodyImg = _.template('<img src="<%= src %>" alt="<%= alt %>" />',
+            var bodyImg = _.template('<div style="productContainer"><img src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
             });
 
-            var metaData = _.template('<span class="brand">Banna Republic</span>' +
+            var metaData = _.template('<span class="brand">Banana Republic</span>' +
                                       '<span class="description"><%= description %></span>' +
-                                      '<span class="price">$<%= price %></span><span class="priceTag"></span>',
+                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span>',
                                        { description: adBlock.name,
                                          price: adBlock.salePrice });
 
