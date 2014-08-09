@@ -94,3 +94,16 @@
     border-top: #dadada;
     border-bottom: #dadada;
 }
+.simbaBigBox .smBody .nav {
+	height: 12px;
+	width: 36px;
+	top: 130px;
+	float: right;
+	position: relative;
+}
+.simbaBigBox .smBody .nav img {
+	height: 12px;
+	width: 12px;
+	padding-left: 2px;
+	float: left;
+}
