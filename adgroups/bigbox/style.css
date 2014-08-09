@@ -1,7 +1,12 @@
+.BigBoxContainer {
+	height: 250px;
+	width: 300px;
+	padding: 0px;
+	border: solid 1px #7d7d7d;
+}
 .simbaBigBox {
     width: 300px;
     cursor: pointer;
-    border: solid 1px #7d7d7d;
 }
 
 .simbaBigBox .smHeader {
@@ -39,6 +44,7 @@
     font-size: 12px;
     color: #3e3a3b;
     font-weight: bold;
+    line-height: normal;
     display: block;
 }
 
@@ -60,6 +66,7 @@
 	display: inline-block;
 	float: left;
 	height: 18px;
+	width: 10px;
 	margin-top: 30px;
 	content: url('http://clientfiles.sixaces.ca/sd/adgroups/bigbox/price-tag.png');
 }
