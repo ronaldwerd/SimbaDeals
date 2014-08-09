@@ -12,26 +12,59 @@ simbaAdEngine = function($, _) {
 
         c = c[0];
 
-        var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
-                    + c.categoryId + "&productLimit=" + c.productCount;
+        var getProducts = function(c) {
+            var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
+                        + c.categoryId + "&productLimit=" + c.productCount;
 
-        $.ajax({
-            url: adUrl,
-            type: 'GET',
-            dataType: 'json',
-            retryLimit: 3,
-            contentType: 'application/json; charset=utf-8',
-            statusCode: {
-                200: callback
-            }
-        });
+            $.ajax({
+                url: adUrl,
+                type: 'GET',
+                dataType: 'json',
+                retryLimit: 3,
+                contentType: 'application/json; charset=utf-8',
+                statusCode: {
+                    200: function(data) {
+                        getMerchantList(data, callback)
+                    }
+                }
+            });
+        }
+
+
+        var getMerchantList = function(productData, callback) {
+
+            var merchantListUrl = 'http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/merchant/list?isoCurrencyCode=CAD';
+
+            $.ajax({
+                url: merchantListUrl,
+                type: 'GET',
+                dataType: 'json',
+                retryLimit: 3,
+                contentType: 'application/json; charset=utf-8',
+                statusCode: {
+                    200: function(data) {
+                        callback(data, productData);
+                    }
+                }
+            });
+        }
+
+        getProducts(c);
     }
 
-    var renderBanner = function(element, adBlock) {
+    var renderBanner = function(element, merchantList, adBlockCollection) {
 
         var template = null;
 
         if(1 == 1) { // Assume bigbox is true filler logic
+
+            var adBlock = adBlockCollection[0];
+
+            var m = $.grep(merchantList, function(m) {
+                return m.id == adBlock.merchantId;
+            });
+
+            var m = m[0];
 
             var bodyImg = _.template('<img src="<%= src %>" alt="<%= alt %>" />',
             {
@@ -39,11 +72,14 @@ simbaAdEngine = function($, _) {
                 alt: adBlock.name
             });
 
-            var metaData = _.template('<span class="brand">Banna Republic</span>' +
+            var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                       '<span class="description"><%= description %></span>' +
                                       '<span class="price"><%= price %></span>',
-                                       { description: adBlock.name,
-                                         price: adBlock.salePrice });
+                                       {
+                                         merchant: m.name,
+                                         description: adBlock.name,
+                                         price: adBlock.salePrice
+                                       });
 
             var template = _.template(
                 '<div class="simbaBigBox">' +
@@ -65,15 +101,14 @@ simbaAdEngine = function($, _) {
 
     function refresh() {
 
+
         $('div[simba-deals]').each(function() {
 
             var code = $(this).attr('simba-deals');
             var element = this;
 
-            queryForBanner(code, function(data) {
-
-                var adBlock = data[1];
-                renderBanner(element, adBlock);
+            queryForBanner(code, function(merchantList, adBlockCollection) {
+                renderBanner(element, merchantList, adBlockCollection);
             });
         });
     }
