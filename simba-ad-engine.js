@@ -70,14 +70,16 @@ simbaAdEngine = function($, _) {
 
             var m = m[0];
 
-            console.log(m);
-
             var bodyImg = _.template('<div style="productContainer"><img src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
             });
 
+
+            /*
+             * Render first ad
+             */
 
             var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                       '<span class="description"><%= description %></span>' +
@@ -95,7 +97,7 @@ simbaAdEngine = function($, _) {
                 '<div class="smBody">' +
                 '<%= bodyImg %>' +
                 '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-                '<div class="nav"><img src="http://clientfiles.sixaces.ca/sd/adgroups/bigbox/prev-btn.png" /><img src="http://clientfiles.sixaces.ca/sd/adgroups/bigbox/next-btn.png" /></div>' +
+                '<div class="nav"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
                 '</div></div>' +
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
@@ -106,6 +108,8 @@ simbaAdEngine = function($, _) {
         $(element).click(function() {
             location.href = adBlock.deepLink;
         });
+
+
     }
 
     function refresh() {
