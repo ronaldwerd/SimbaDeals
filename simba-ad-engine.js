@@ -50,8 +50,9 @@ simbaAdEngine = function($, _) {
                 '<div class="smHeader"></div>' +
                 '<div class="smBody">' +
                 '<%= bodyImg %>' +
-                '<div class="meta"><div class="meta-inner"><%= metaData %></div></div>' +
-                '</div>' +
+                '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
+                '<div class="nav"><img src="http://clientfiles.sixaces.ca/sd/adgroups/bigbox/prev-btn.png" /><img src="http://clientfiles.sixaces.ca/sd/adgroups/bigbox/next-btn.png" /></div>' +
+                '</div></div>' +
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
 
