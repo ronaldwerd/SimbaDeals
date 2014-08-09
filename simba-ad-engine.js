@@ -56,8 +56,11 @@ simbaAdEngine = function($, _) {
 
         var template = null;
 
-        if(1 == 1) { // Assume bigbox is true filler logic
+        var bannerType = $(element).attr('simba-type');
 
+        if(!bannerType) return null;
+
+        if(bannerType.toUpperCase() == 'BIG_BOX') { // Assume bigbox is true filler logic
 
             var adBlock = adBlockCollection[0];
 
