@@ -1,26 +1,30 @@
 .simbaBigBox {
     width: 300px;
     cursor: pointer;
+    border: solid 1px #7d7d7d;
 }
 
 .simbaBigBox .smHeader {
     height: 53px;
-    background-image: url('/adgroups/banrepublic/bigbox-header.png');
+    background-image: url('http://clientfiles.sixaces.ca/sd/adgroups/banrepublic/bigbox-header.png');
+    border-bottom: solid 1px #dadada;
 }
 
 .simbaBigBox .smFooter {
-    height: 47px;
-    background-image: url('/adgroups/banrepublic/bigbox-footer.png');
+    height: 46px;
+    background-image: url('http://clientfiles.sixaces.ca/sd/adgroups/banrepublic/bigbox-footer.png');
+    border-top: solid 1px #dadada;
 }
 
 .simbaBigBox .smBody img {
     float: left;
     height: 149px;
+    width: 111px;
 }
 
 .simbaBigBox .smBody .meta {
     float: right;
-    width: 150px;
+    width: 189px;
     height: inherit;
 }
 
@@ -59,4 +63,3 @@
     border-top: #dadada;
     border-bottom: #dadada;
 }
-
