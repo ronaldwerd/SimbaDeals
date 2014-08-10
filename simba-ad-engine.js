@@ -64,45 +64,37 @@ simbaAdEngine = function($, _) {
 
     var renderBanner = function(element, merchantList, adBlockCollection) {
 
-        var template = null;
+        var adBlock = adBlockCollection[1];
 
-        var bannerType = $(element).attr('simba-type');
+        var m = findMerchant(merchantList, adBlock.merchantId);
 
-        if(!bannerType) return null;
+        var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
+        {
+            src: adBlock.imageURL,
+            alt: adBlock.name
+        });
 
-        if(bannerType.toUpperCase() == 'BIG_BOX') { // Assume bigbox is true filler logic
-
-            var adBlock = adBlockCollection[1];
-
-            var m = findMerchant(merchantList, adBlock.merchantId);
-
-            var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
-            {
-                src: adBlock.imageURL,
-                alt: adBlock.name
-            });
-
-            var metaData = _.template('<span class="brand"><%= merchant %></span>' +
-                                      '<span class="description"><%= description %></span>' +
-                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save!</span>',
-                                       {
-                                         merchant: m.name,
-                                         description: adBlock.name,
-                                         price: adBlock.salePrice
-                                       });
+        var metaData = _.template('<span class="brand"><%= merchant %></span>' +
+                                  '<span class="description"><%= description %></span>' +
+                                  '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save!</span>',
+                                   {
+                                     merchant: m.name,
+                                     description: adBlock.name,
+                                     price: adBlock.salePrice
+                                   });
 
 
-            var template = _.template(
-                '<div class="simbaBigBox">' +
-                '<div class="smHeader"></div>' +
-                '<div class="smBody">' +
-                '<div class="smArrow"></div>' +
-                '<%= bodyImg %>' +
-                '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-                '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
-                '</div></div>' +
-                '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
-        }
+        var template = _.template(
+            '<div class="simbaBigBox">' +
+            '<div class="smHeader"></div>' +
+            '<div class="smBody">' +
+            '<div class="smArrow"></div>' +
+            '<%= bodyImg %>' +
+            '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
+            '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
+            '</div></div>' +
+            '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
+
 
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
@@ -170,27 +162,16 @@ simbaAdEngine = function($, _) {
             var element = this;
 
             queryForBanner(code, function(merchantList, adBlockCollection) {
-                renderBanner(element, merchantList, adBlockCollection);
+
+                var bannerType = $(element).attr('simba-type');
+
+                if(bannerType.toUpperCase() == 'BIG_BOX') { // Assume bigbox is true filler logic
+
+                    renderBanner(element, merchantList, adBlockCollection);
+                }
             });
         });
     }
 
     refresh();
 };
-
-
-/* Meta Data Reference */
-/*
-    "description":"Rittenhouse The Reacher, 32\" (81.3 cm) longlightweight constructionwith less strain on your back you can work longer and help prevent injury  This ergonomic tool lets you grab myriad hard-to-reach items without bending, stretching, or straining. Pick up litter without leaving the seat of your lawn mower! Clean up unsanitary items without using your hands.",
-    "merchantId":351,
-    "discountRate":0.0,
-    "deepLink":"http://www.jdoqocy.com/click-7051195-10722217?url=http%3A%2F%2Fwww.sears.ca%2Fproduct%2Frittenhouse-the-reacher%2F661-000661561-52632&sid=2_19663200",
-    "imageURL":"http://www.sears.ca/wcsstore/MasterCatalog/images/catalog/Product_271/std_lang_all/18/_p/661_10918_P.jpg",
-    "salePrice":22.99,
-    "retailPrice":22.99,
-    "thumbnailURL":"http://www.sears.ca/wcsstore/MasterCatalog/images/catalog/Product_271/std_lang_all/18/_p/661_10918_P.jpg",
-    "categoryId":134217728,
-    "name":"Rittenhouse The Reacher",
-    "id":19663200,
-    "currency":"CAD"
-*/
