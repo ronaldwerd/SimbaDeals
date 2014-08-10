@@ -146,21 +146,15 @@ simbaAdEngine = function($, _) {
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
 
-            // console.log(adBlock.imageURL);
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
-            // console.log($(adBlockElement).attr('data-url'));
-
             $(adBlockElement).attr('data-url', adBlock.deepLink);
-
-            console.log(clickPosition);
 
             $(nav).attr('simba-position', clickPosition);
         }
-
 
         $(cycleButtons).click(cycleAdblock);
     }
