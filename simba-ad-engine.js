@@ -72,7 +72,7 @@ simbaAdEngine = function($, _) {
 
         if(bannerType.toUpperCase() == 'BIG_BOX') { // Assume bigbox is true filler logic
 
-            var adBlock = adBlockCollection[0];
+            var adBlock = adBlockCollection[1];
 
             var m = findMerchant(merchantList, adBlock.merchantId);
 
@@ -99,7 +99,7 @@ simbaAdEngine = function($, _) {
                 '<div class="smArrow"></div>' +
                 '<%= bodyImg %>' +
                 '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-                '<div class="nav" simba-position="0"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
+                '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
                 '</div></div>' +
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
@@ -114,39 +114,55 @@ simbaAdEngine = function($, _) {
 
         var cycleButtons = $(element).children().find('.prev, .next');
 
-        var cycleAd = function() {
+        var cycleAdblock = function() {
 
             var nav = $(this).parent();
+
             var clickPosition = parseInt($(nav).attr('simba-position'));
+
+            if($(this).hasClass('next')) {
+
+                clickPosition++;
+
+                if(clickPosition == adBlockCollection.length) {
+                    clickPosition = 0;
+                }
+            }
+
+            if($(this).hasClass('prev')) {
+
+                clickPosition--;
+
+                if(clickPosition == -1) {
+                    clickPosition = adBlockCollection.length - 1;
+                }
+            }
 
             var adBlock = adBlockCollection[clickPosition];
             var adBlockElement = $(this).parent().parent();
-
-            console.log(adBlockElement);
-
-            clickPosition++;
-
-            if(clickPosition == adBlockCollection.length) clickPosition = 0;
 
             var img = $(adBlockElement).parent().find('.simbaAdImage')[0];
 
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
 
-            console.log(adBlock.imageURL);
+            // console.log(adBlock.imageURL);
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
+            // console.log($(adBlockElement).attr('data-url'));
+
             $(adBlockElement).attr('data-url', adBlock.deepLink);
 
-            $(nav).attr('simba-position', clickPosition);
-
             console.log(clickPosition);
+
+            $(nav).attr('simba-position', clickPosition);
         }
 
-        $(cycleButtons).click(cycleAd);
+
+        $(cycleButtons).click(cycleAdblock);
     }
 
     function refresh() {
