@@ -4,6 +4,16 @@ simbaAdEngine = function($, _) {
         { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 5 }
     ];
 
+    var findMerchant = function(merchantList, merchantId) {
+        var m = $.grep(merchantList, function(m) {
+            return m.id == merchantId;
+        });
+
+        var m = m[0];
+
+        return m;
+    }
+
     var queryForBanner = function(categoryCode, callback) {
 
         var c = $.grep(categoryCodes, function(e) {
@@ -64,22 +74,21 @@ simbaAdEngine = function($, _) {
 
             var adBlock = adBlockCollection[0];
 
+            /*
             var m = $.grep(merchantList, function(m) {
                 return m.id == adBlock.merchantId;
             });
 
             var m = m[0];
+            */
+
+            var m = findMerchant(merchantList, adBlock.merchantId);
 
             var bodyImg = _.template('<div style="productContainer"><img src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
             });
-
-
-            /*
-             * Render first ad
-             */
 
             var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                       '<span class="description"><%= description %></span>' +
@@ -112,7 +121,18 @@ simbaAdEngine = function($, _) {
             var nav = $(this).parent();
             var clickPosition = parseInt($(nav).attr('simba-position'));
 
+            var adBlock = adBlockCollection[clickPosition];
+            var adBlockElement = $(this).parent().parent();
+
             clickPosition++;
+
+            if(clickPosition == adBlockCollection.length) clickPosition = 0;
+
+            console.log(adBlock);
+
+            //$($(adBlockElement).find('.brand')[0]).text(adBlock.);
+            $($(adBlockElement).find('.description')[0]).text(adBlock.name);
+            $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
             $(nav).attr('simba-position', clickPosition);
 
