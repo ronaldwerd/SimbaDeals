@@ -84,7 +84,7 @@ simbaAdEngine = function($, _) {
 
             var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                       '<span class="description"><%= description %></span>' +
-                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save</span>',
+                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save!</span>',
                                        {
                                          merchant: m.name,
                                          description: adBlock.name,
