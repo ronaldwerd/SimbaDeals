@@ -14,7 +14,7 @@ simbaAdEngine = function($, _) {
         return m;
     }
 
-    var queryForBanner = function(categoryCode, callback) {
+    var queryForProducts = function(categoryCode, callback) {
 
         var c = $.grep(categoryCodes, function(e) {
             return e.code == categoryCode;
@@ -62,7 +62,7 @@ simbaAdEngine = function($, _) {
         getProducts(c);
     }
 
-    var renderBanner = function(element, merchantList, adBlockCollection) {
+    var renderBigBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[1];
 
@@ -103,7 +103,6 @@ simbaAdEngine = function($, _) {
             var productUrl = $(element).attr('data-url');
             location.href = productUrl;
         });
-
 
 
         var cycleButtons = $(element).children().find('.prev, .next');
@@ -161,13 +160,23 @@ simbaAdEngine = function($, _) {
             var code = $(this).attr('simba-deals');
             var element = this;
 
-            queryForBanner(code, function(merchantList, adBlockCollection) {
+            queryForProducts(code, function(merchantList, adBlockCollection) {
 
                 var bannerType = $(element).attr('simba-type');
 
-                if(bannerType.toUpperCase() == 'BIG_BOX') { // Assume bigbox is true filler logic
+                if(bannerType) {
 
-                    renderBanner(element, merchantList, adBlockCollection);
+                    bannerType = bannerType.toUpperCase();
+
+                    if(bannerType == 'BIG_BOX') { // Assume bigbox is true filler logic
+
+                        renderBigBox(element, merchantList, adBlockCollection);
+                    }
+
+                    if(bannerType == 'LEADER_BOX') { // Assume bigbox is true filler logic
+
+                        renderBanner(element, merchantList, adBlockCollection);
+                    }
                 }
             });
         });
