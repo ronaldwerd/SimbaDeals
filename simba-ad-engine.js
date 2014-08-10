@@ -1,7 +1,7 @@
 simbaAdEngine = function($, _) {
 
     var categoryCodes = [
-        { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 5 }
+        { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 8 }
     ];
 
     var findMerchant = function(merchantList, merchantId) {
@@ -9,11 +9,9 @@ simbaAdEngine = function($, _) {
             return m.id == merchantId;
         });
 
-        if(m.length == 1) {
-            return m[0];
-        }
+        var m = m[0];
 
-        return null;
+        return m;
     }
 
     var queryForBanner = function(categoryCode, callback) {
@@ -78,7 +76,7 @@ simbaAdEngine = function($, _) {
 
             var m = findMerchant(merchantList, adBlock.merchantId);
 
-            var bodyImg = _.template('<div style="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
+            var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
@@ -86,20 +84,22 @@ simbaAdEngine = function($, _) {
 
             var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                       '<span class="description"><%= description %></span>' +
-                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span>',
+                                      '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save</span>',
                                        {
                                          merchant: m.name,
                                          description: adBlock.name,
                                          price: adBlock.salePrice
                                        });
 
+
             var template = _.template(
                 '<div class="simbaBigBox">' +
                 '<div class="smHeader"></div>' +
                 '<div class="smBody">' +
+                '<div class="smArrow"></div>' +
                 '<%= bodyImg %>' +
                 '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-                '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
+                '<div class="nav" simba-position="0"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
                 '</div></div>' +
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
@@ -109,12 +109,7 @@ simbaAdEngine = function($, _) {
         $(element).find('.meta-inner').click(function() {
 
             var productUrl = $(element).attr('data-url');
-
-
-            console.log(productUrl);
-
-
-            //location.href = productUrl;
+            location.href = productUrl;
         });
 
         var cycleButtons = $(element).children().find('.prev, .next');
@@ -122,11 +117,16 @@ simbaAdEngine = function($, _) {
         var cycleAd = function() {
 
             var nav = $(this).parent();
-
             var clickPosition = parseInt($(nav).attr('simba-position'));
 
             var adBlock = adBlockCollection[clickPosition];
             var adBlockElement = $(this).parent().parent();
+
+            console.log(adBlockElement);
+
+            clickPosition++;
+
+            if(clickPosition == adBlockCollection.length) clickPosition = 0;
 
             var img = $(adBlockElement).parent().find('.simbaAdImage')[0];
 
@@ -139,20 +139,11 @@ simbaAdEngine = function($, _) {
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
-            console.log($(adBlockElement).attr('data-url'));
-
             $(adBlockElement).attr('data-url', adBlock.deepLink);
 
-            clickPosition++;
             $(nav).attr('simba-position', clickPosition);
 
-
-
             console.log(clickPosition);
-
-            if(clickPosition == adBlockCollection.length) {
-                $(nav).attr('simba-position', 0);
-            }
         }
 
         $(cycleButtons).click(cycleAd);
@@ -173,3 +164,20 @@ simbaAdEngine = function($, _) {
 
     refresh();
 };
+
+
+/* Meta Data Reference */
+/*
+    "description":"Rittenhouse The Reacher, 32\" (81.3 cm) longlightweight constructionwith less strain on your back you can work longer and help prevent injury  This ergonomic tool lets you grab myriad hard-to-reach items without bending, stretching, or straining. Pick up litter without leaving the seat of your lawn mower! Clean up unsanitary items without using your hands.",
+    "merchantId":351,
+    "discountRate":0.0,
+    "deepLink":"http://www.jdoqocy.com/click-7051195-10722217?url=http%3A%2F%2Fwww.sears.ca%2Fproduct%2Frittenhouse-the-reacher%2F661-000661561-52632&sid=2_19663200",
+    "imageURL":"http://www.sears.ca/wcsstore/MasterCatalog/images/catalog/Product_271/std_lang_all/18/_p/661_10918_P.jpg",
+    "salePrice":22.99,
+    "retailPrice":22.99,
+    "thumbnailURL":"http://www.sears.ca/wcsstore/MasterCatalog/images/catalog/Product_271/std_lang_all/18/_p/661_10918_P.jpg",
+    "categoryId":134217728,
+    "name":"Rittenhouse The Reacher",
+    "id":19663200,
+    "currency":"CAD"
+*/
