@@ -106,11 +106,13 @@ simbaAdEngine = function($, _) {
 
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
-        $(element).find('.meta-inner').click(function() {
+        $(element).find('.productContainer, .meta-inner').click(function() {
 
             var productUrl = $(element).attr('data-url');
             location.href = productUrl;
         });
+
+
 
         var cycleButtons = $(element).children().find('.prev, .next');
 
@@ -151,9 +153,10 @@ simbaAdEngine = function($, _) {
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
-            $(adBlockElement).attr('data-url', adBlock.deepLink);
+            $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
 
             $(nav).attr('simba-position', clickPosition);
+
         }
 
         $(cycleButtons).click(cycleAdblock);

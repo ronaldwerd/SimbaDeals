@@ -8,7 +8,6 @@
 }
 .simbaBigBox {
     width: 300px;
-    cursor: pointer;
 }
 
 .simbaBigBox .smHeader {
@@ -27,6 +26,7 @@
     overflow: hidden;
     width: 111px;
     display: inline-block;
+    cursor: pointer;
 }
 .simbaBigBox .smBody img {
     float: left;
@@ -40,6 +40,7 @@
     width: 188px;
     height: inherit;
     padding: 0px;
+    cursor: pointer;
 }
 
 .simbaBigBox .smBody .meta .brand {
