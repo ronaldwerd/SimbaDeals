@@ -1,0 +1,144 @@
+.LeaderContainer {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    height: 90px;
+    width: 728px;
+    padding: 0px;
+    border: solid 1px #7d7d7d;
+    overflow: hidden;
+}
+
+.simbaLeader {
+	display: inline-block;
+    width: 728px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.simbaLeader .smHeader {
+	display: table;
+	float: left;
+    height: 90px;
+    width: 204px;
+    background-image: url('leader-header.png');
+}
+
+.simbaLeader .smFooter {
+	display: inline-block;
+	float: left;
+    height: 90px;
+    width: 37px;
+    background-image: url('leader-footer.png');
+    border-right: solid 1px #dadada;
+}
+
+.simbaLeader .smBody .productContainer {
+    float: left;
+    overflow: hidden;
+    width: 67px;
+    display: inline-block;
+    padding: 0px;
+    border-left: solid 1px #dadada;
+}
+.simbaLeader .smBody productContainer img {
+    float: left;
+    height: 90px;
+    width: 67px;
+}
+
+.simbaLeader .smBody .arrow {
+	position: absolute;
+	width: 15px;
+	height: 28px;
+	z-index: 500;
+	margin-top: 32px;
+	margin-left: 56px;
+	background-image: url('arrow.png');
+}
+
+.simbaLeader .smBody .meta {
+    display: table;
+    float: left;
+    height: 90px;
+    width: 145px;
+}
+
+.simbaLeader .smBody .meta .brand {
+    font-size: 8.5px;
+    color: #3e3a3b;
+    display: block;
+    padding: 0px 0px 3px 0px;
+    width: 100%;
+}
+
+.simbaLeader .smBody .meta .description {
+    font-size: 10.5px;
+    color: #3e3a3b;
+    letter-spacing: 0.025em;
+    font-weight: 400;
+    line-height: 11px;
+    display: block;
+    width: 100%;
+}
+
+.simbaLeader .smBody .meta .price {
+    display: inline-block;
+    float: left;
+    height: 18px !important;
+    min-width: 34px;
+    margin-top: 6px;
+    background-color: #f24e21;
+    color: white;
+    font-weight: 500;
+    font-size: 10px;
+    padding: 0px 3px;
+    line-height: 19px;
+}
+.simbaLeader .smBody .meta .priceTag {
+    display: inline-block;
+    float: left;
+    height: 18px;
+    width: 10px;
+    margin-top: 6px;
+    background-image: url('price-tag.png');
+}
+
+.simbaLeader .smBody .meta-inner {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    text-align: left;
+}
+
+.simbaLeader .smBody .meta-inner .link {
+	float: left;
+	color: #f24e21;
+	font-size: 8px;
+	font-weight: 600;
+	text-decoration: underline;
+	text-transform: uppercase;
+	padding-left: 4px;
+	margin-top: 9px;
+}
+
+.simbaLeader .smBody {
+	display: inline-block;
+	float: right;
+	width: 485px;
+    background-color: #ececec;
+    position: relative;
+}
+.simbaLeader .smHeader .nav {
+    height: 12px;
+    width: 36px;
+    float: right;
+    margin: 0px auto;
+    top: 73px;
+    position: relative;
+}
+.simbaLeader .smHeader .nav img {
+    height: 12px;
+    width: 12px;
+    padding-left: 2px;
+    float: left;
+}
