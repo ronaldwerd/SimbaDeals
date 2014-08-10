@@ -74,17 +74,9 @@ simbaAdEngine = function($, _) {
 
             var adBlock = adBlockCollection[0];
 
-            /*
-            var m = $.grep(merchantList, function(m) {
-                return m.id == adBlock.merchantId;
-            });
-
-            var m = m[0];
-            */
-
             var m = findMerchant(merchantList, adBlock.merchantId);
 
-            var bodyImg = _.template('<div style="productContainer"><img src="<%= src %>" alt="<%= alt %>" /></div>',
+            var bodyImg = _.template('<div style="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
@@ -111,8 +103,13 @@ simbaAdEngine = function($, _) {
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
 
-
+        $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
+        $(element).find('.meta-inner').click(function() {
+
+            var productUrl = $(element).attr('data-url');
+            location.href = productUrl;
+        });
 
         var cycleButtons = $(element).children().find('.prev, .next');
 
@@ -124,15 +121,24 @@ simbaAdEngine = function($, _) {
             var adBlock = adBlockCollection[clickPosition];
             var adBlockElement = $(this).parent().parent();
 
+            console.log(adBlockElement);
+
             clickPosition++;
 
             if(clickPosition == adBlockCollection.length) clickPosition = 0;
 
-            console.log(adBlock);
+            var img = $(adBlockElement).parent().find('.simbaAdImage')[0];
 
-            //$($(adBlockElement).find('.brand')[0]).text(adBlock.);
+            $(img).attr('src', adBlock.imageURL);
+            $(img).attr('alt', adBlock.name);
+
+            console.log(adBlock.imageURL);
+
+            $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
+
+            $(adBlockElement).attr('data-url', adBlock.deepLink);
 
             $(nav).attr('simba-position', clickPosition);
 

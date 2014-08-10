@@ -106,4 +106,5 @@
     width: 12px;
     padding-left: 2px;
     float: left;
+    z-index: 1000;
 }
