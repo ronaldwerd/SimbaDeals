@@ -97,7 +97,7 @@ simbaAdEngine = function($, _) {
                 '<div class="smBody">' +
                 '<%= bodyImg %>' +
                 '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-                '<div class="nav"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
+                '<div class="nav" simba-position="0"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
                 '</div></div>' +
                 '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
         }
@@ -105,15 +105,24 @@ simbaAdEngine = function($, _) {
 
         $(element).append(template, null);
 
-        $(element).click(function() {
-            location.href = adBlock.deepLink;
-        });
+        var cycleButtons = $(element).children().find('.prev, .next');
 
+        var cycleAd = function() {
 
+            var nav = $(this).parent();
+            var clickPosition = parseInt($(nav).attr('simba-position'));
+
+            clickPosition++;
+
+            $(nav).attr('simba-position', clickPosition);
+
+            console.log(clickPosition);
+        }
+
+        $(cycleButtons).click(cycleAd);
     }
 
     function refresh() {
-
 
         $('div[simba-deals]').each(function() {
 
