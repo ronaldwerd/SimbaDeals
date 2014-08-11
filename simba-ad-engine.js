@@ -293,7 +293,7 @@ simbaAdEngine = function($, _) {
             console.log(this)
         });*/
 
-        /*
+
         var backProductSelect = function() {
             var pos = parseInt($(this).attr('data-ad-block-pos'));
 
@@ -307,28 +307,12 @@ simbaAdEngine = function($, _) {
 
             $('.backProducts > .backProduct').remove();
             $('.backProducts').append(backProducts, null);
-        }*/
 
-        $('.simbaLeader > .smBody > .backproducts > .backProduct').click(function() {
+            $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
+        }
 
-            var pos = parseInt($(this).attr('data-ad-block-pos'));
-
-            $('.simbaLeader > .smBody > .backproducts > .productContainer').remove();
-
-            adBlockCollection.splice(pos, 1);
-
-            var backProducts = renderBackProducts(adBlockCollection);
-
-            console.log(backProducts);
-
-            $('.backProducts > .backProduct').remove();
-            $('.backProducts').append(backProducts, null);
-
-            $('.simbaLeader > .smBody > .backproducts > .backProduct').click(this);
-
-            //$(backProducts).appendTo($('.simbaLeader > .smBody > .backproducts > .productContainer'));
-        });
-
+        $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
+        
         $(cycleButtons).click(cycleAdblock);
     }
 
