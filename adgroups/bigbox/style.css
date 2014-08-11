@@ -5,6 +5,7 @@
     width: 300px;
     padding: 0px;
     border: solid 1px #7d7d7d;
+    overflow: hidden;
 }
 .simbaBigBox {
     width: 300px;
@@ -110,16 +111,17 @@
 .simbaBigBox .smBody .nav {
     height: 12px;
     width: 36px;
-    top: 226px;
-    margin-left: -36px;
-    position: absolute;
+	bottom: 0px;
+    margin-left: -28px;
+    top: 130px;
+    position: relative;
+    z-index: 1000;
 }
 .simbaBigBox .smBody .nav img {
     height: 12px;
-    width: 12px;
+    width: 13px;
     padding-left: 2px;
     float: left;
-    z-index: 1000;
 }
 
 .simbaBigBox .smBody .smArrow {
