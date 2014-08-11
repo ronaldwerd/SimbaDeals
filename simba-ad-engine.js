@@ -191,15 +191,15 @@ simbaAdEngine = function($, _) {
             });
 
 
-        var renderBackProducts = function() {
+        var renderBackProducts = function(adBlockCollection) {
 
             var backProducts = '';
 
-            for(var i = 1; i < adBlockCollection.length; i++) {
+            for(var i = 0; i < adBlockCollection.length; i++) {
 
                 var adBlock = adBlockCollection[i];
 
-                var backProduct = _.template('<div class="productContainer" class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
+                var backProduct = _.template('<div class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
                 {
                     src: adBlock.imageURL,
                     alt: adBlock.name,
@@ -211,6 +211,8 @@ simbaAdEngine = function($, _) {
 
             return backProducts;
         }
+
+        adBlockCollection.splice(0, 1);
 
         var template = _.template(
             '<div class="simbaLeader">' +
@@ -228,7 +230,7 @@ simbaAdEngine = function($, _) {
                 '</div>' +
                 '<div class="backProducts"><%= backProducts %></div>' +
             '</div>' +
-            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts() });
+            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection) });
 
 
             $(element).attr('data-url',adBlock.deepLink);
@@ -291,12 +293,41 @@ simbaAdEngine = function($, _) {
             console.log(this)
         });*/
 
-        $('.simbaLeader > .smBody > .productContainer').click(function() {
+        /*
+        var backProductSelect = function() {
+            var pos = parseInt($(this).attr('data-ad-block-pos'));
 
-            console.log(this);
+            $('.simbaLeader > .smBody > .backproducts > .productContainer').remove();
 
-            alert('werd');
-        })
+            adBlockCollection.splice(pos, 1);
+
+            var backProducts = renderBackProducts(adBlockCollection);
+
+            console.log(backProducts);
+
+            $('.backProducts > .backProduct').remove();
+            $('.backProducts').append(backProducts, null);
+        }*/
+
+        $('.simbaLeader > .smBody > .backproducts > .backProduct').click(function() {
+
+            var pos = parseInt($(this).attr('data-ad-block-pos'));
+
+            $('.simbaLeader > .smBody > .backproducts > .productContainer').remove();
+
+            adBlockCollection.splice(pos, 1);
+
+            var backProducts = renderBackProducts(adBlockCollection);
+
+            console.log(backProducts);
+
+            $('.backProducts > .backProduct').remove();
+            $('.backProducts').append(backProducts, null);
+
+            $('.simbaLeader > .smBody > .backproducts > .backProduct').click(this);
+
+            //$(backProducts).appendTo($('.simbaLeader > .smBody > .backproducts > .productContainer'));
+        });
 
         $(cycleButtons).click(cycleAdblock);
     }

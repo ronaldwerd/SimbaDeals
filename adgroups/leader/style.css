@@ -40,11 +40,30 @@
     padding: 0px;
     border-left: solid 1px #dadada;
 }
+
+
 .simbaLeader .smBody .productContainer img {
     float: left;
     height: 90px;
     width: 67px;
 }
+
+.simbaLeader .smBody .backProduct {
+    float: left;
+    overflow: hidden;
+    width: 67px;
+    display: inline-block;
+    padding: 0px;
+    border-left: solid 1px #dadada;
+}
+
+
+.simbaLeader .smBody .backProduct img {
+    float: left;
+    height: 90px;
+    width: 67px;
+}
+
 
 .simbaLeader .smBody .arrow {
 	position: absolute;
