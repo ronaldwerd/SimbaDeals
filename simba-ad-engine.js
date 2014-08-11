@@ -178,6 +178,7 @@ simbaAdEngine = function($, _) {
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
+
             });
 
         var metaData = _.template('<span class="brand"><%= merchant %></span>' +
@@ -195,10 +196,11 @@ simbaAdEngine = function($, _) {
 
             var adBlock = adBlockCollection[i];
 
-            var backProduct = _.template('<div class="productContainer"><img src="<%=src %>" alt="<%= alt %>" /></div>',
+            var backProduct = _.template('<div class="productContainer" class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
-                alt: adBlock.name
+                alt: adBlock.name,
+                pos: i
             });
 
             backProducts += backProduct;
