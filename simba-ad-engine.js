@@ -190,20 +190,26 @@ simbaAdEngine = function($, _) {
                 price: adBlock.salePrice
             });
 
-        var backProducts = '';
 
-        for(var i = 1; i < adBlockCollection.length; i++) {
+        var renderBackProducts = function() {
 
-            var adBlock = adBlockCollection[i];
+            var backProducts = '';
 
-            var backProduct = _.template('<div class="productContainer" class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
-            {
-                src: adBlock.imageURL,
-                alt: adBlock.name,
-                pos: i
-            });
+            for(var i = 1; i < adBlockCollection.length; i++) {
 
-            backProducts += backProduct;
+                var adBlock = adBlockCollection[i];
+
+                var backProduct = _.template('<div class="productContainer" class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
+                {
+                    src: adBlock.imageURL,
+                    alt: adBlock.name,
+                    pos: i
+                });
+
+                backProducts += backProduct;
+            }
+
+            return backProducts;
         }
 
         var template = _.template(
@@ -220,14 +226,14 @@ simbaAdEngine = function($, _) {
                 '<div class="meta">' +
                     '<div class="meta-inner"><%= metaData %></div>' +
                 '</div>' +
-                '<%= backProducts %>' +
+                '<div class="backProducts"><%= backProducts %></div>' +
             '</div>' +
-            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: backProducts });
+            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts() });
 
 
             $(element).attr('data-url',adBlock.deepLink);
             $(element).append(template, null);
-            $(element).find('.productContainer, .meta-inner').click(function() {
+            $(element).find('.meta-inner').click(function() {
 
                 var productUrl = $(element).attr('data-url');
                 location.href = productUrl;
@@ -279,6 +285,18 @@ simbaAdEngine = function($, _) {
 
             $(nav).attr('simba-position', clickPosition);
         }
+
+        /*
+        $(adBlockElement).find('.productContainer').click(function() {
+            console.log(this)
+        });*/
+
+        $('.simbaLeader > .smBody > .productContainer').click(function() {
+
+            console.log(this);
+
+            alert('werd');
+        })
 
         $(cycleButtons).click(cycleAdblock);
     }
