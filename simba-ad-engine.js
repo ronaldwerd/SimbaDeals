@@ -162,6 +162,10 @@ simbaAdEngine = function($, _) {
         }
 
         $(cycleButtons).click(cycleAdblock);
+
+        setInterval(function() {
+            $('.next').trigger('click')
+        }, 3500);
     }
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
@@ -260,7 +264,6 @@ simbaAdEngine = function($, _) {
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
 
             $(nav).attr('simba-position', clickPosition);
-
         }
 
         $(cycleButtons).click(cycleAdblock);
