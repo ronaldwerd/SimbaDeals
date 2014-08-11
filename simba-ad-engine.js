@@ -1,5 +1,16 @@
 simbaAdEngine = function($, _) {
 
+    Number.prototype.currencyFormat = function(n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
+    };
+
+    String.prototype.truncate = function(m) {
+        return (this.length > m)
+            ? $.trim(this).substring(0, m).split(" ").slice(0, -1).join(" ") + "..."
+            : this;
+    };
+
     var categoryCodes = [
         { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 8 }
     ];
@@ -69,10 +80,10 @@ simbaAdEngine = function($, _) {
         var m = findMerchant(merchantList, adBlock.merchantId);
 
         var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
-        {
-            src: adBlock.imageURL,
-            alt: adBlock.name
-        });
+            {
+                src: adBlock.imageURL,
+                alt: adBlock.name
+            });
 
         var metaData = _.template('<span class="brand"><%= merchant %></span>' +
                                   '<span class="description"><%= description %></span>' +
@@ -80,7 +91,7 @@ simbaAdEngine = function($, _) {
                                    {
                                      merchant: m.name,
                                      description: adBlock.name,
-                                     price: adBlock.salePrice
+                                     price: parseInt(adBlock.salePrice).currencyFormat(2)
                                    });
 
 
@@ -142,7 +153,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
-            $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
+            $($(adBlockElement).find('.price')[0]).text('$' + parseInt(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
 
@@ -169,22 +180,31 @@ simbaAdEngine = function($, _) {
             '<span class="description"><%= description %></span>' +
             '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save!</span>',
             {
-                merchant: m.name,
+                merchant: m.name.truncate(40),
                 description: adBlock.name,
                 price: adBlock.salePrice
             });
 
-
         var template = _.template(
-            '<div class="simbaBigBox">' +
-                '<div class="smHeader"></div>' +
-                '<div class="smBody">' +
-                '<div class="smArrow"></div>' +
+            '<div class="simbaLeader">' +
+            '<div class="smFooter"></div>' +
+            '<div class="smHeader">' +
+                '<div class="nav" simba-position="1">' +
+                    '<img src="/adgroups/leader/prev-btn.png" class="prev" /><img src="/adgroups/leader/next-btn.png" class="next" />' +
+                '</div>' +
+            '</div>' +
+            '<div class="smBody">' +
+                '<div class="arrow"></div>' +
                 '<%= bodyImg %>' +
-                '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-                '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
-                '</div></div>' +
-                '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
+                '<div class="meta">' +
+                    '<div class="meta-inner"><%= metaData %></div>' +
+                '</div>' +
+                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
+                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
+                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
+                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
+            '</div>' +
+            '</div>', { metaData: metaData, bodyImg: bodyImg});
 
 
         $(element).attr('data-url',adBlock.deepLink);
@@ -223,7 +243,7 @@ simbaAdEngine = function($, _) {
             }
 
             var adBlock = adBlockCollection[clickPosition];
-            var adBlockElement = $(this).parent().parent();
+            var adBlockElement = $(this).parent().parent().parent();
 
             var img = $(adBlockElement).parent().find('.simbaAdImage')[0];
 
@@ -231,8 +251,10 @@ simbaAdEngine = function($, _) {
             $(img).attr('alt', adBlock.name);
 
 
+            //console.log(adBlockElement);
+
             $($(adBlockElement).find('.brand')[0]).text(m.name);
-            $($(adBlockElement).find('.description')[0]).text(adBlock.name);
+            $($(adBlockElement).find('.description')[0]).text(adBlock.name.truncate(40));
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
@@ -259,13 +281,11 @@ simbaAdEngine = function($, _) {
 
                     bannerType = bannerType.toUpperCase();
 
-                    if(bannerType == 'BIG_BOX') { // Assume bigbox is true filler logic
-
+                    if(bannerType == 'BIG_BOX') {
                         renderBigBox(element, merchantList, adBlockCollection);
                     }
 
-                    if(bannerType == 'LEADER_BOX') { // Assume bigbox is true filler logic
-
+                    if(bannerType == 'LEADER') {
                         renderLeaderBox(element, merchantList, adBlockCollection);
                     }
                 }

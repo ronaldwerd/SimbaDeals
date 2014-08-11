@@ -20,7 +20,7 @@
 	float: left;
     height: 90px;
     width: 204px;
-    background-image: url('leader-header.png');
+    background-image: url('/adgroups/leader/leader-header.png');
 }
 
 .simbaLeader .smFooter {
@@ -28,7 +28,7 @@
 	float: left;
     height: 90px;
     width: 37px;
-    background-image: url('leader-footer.png');
+    background-image: url('/adgroups/leader/leader-footer.png');
     border-right: solid 1px #dadada;
 }
 
@@ -40,7 +40,7 @@
     padding: 0px;
     border-left: solid 1px #dadada;
 }
-.simbaLeader .smBody productContainer img {
+.simbaLeader .smBody .productContainer img {
     float: left;
     height: 90px;
     width: 67px;
@@ -53,7 +53,7 @@
 	z-index: 500;
 	margin-top: 32px;
 	margin-left: 56px;
-	background-image: url('arrow.png');
+	background-image: url('/adgroups/leader/arrow.png');
 }
 
 .simbaLeader .smBody .meta {
@@ -100,7 +100,7 @@
     height: 18px;
     width: 10px;
     margin-top: 6px;
-    background-image: url('price-tag.png');
+    background-image: url('/adgroups/leader/price-tag.png');
 }
 
 .simbaLeader .smBody .meta-inner {

@@ -55,6 +55,7 @@
                 if(scriptsLoaded == scripts.length) {
 
                     $(document).ready(function($) {
+                        $('head').append('<link rel="stylesheet" href="/adgroups/leader/style.css" type="text/css" />');
                         $('head').append('<link rel="stylesheet" href="/adgroups/bigbox/style.css" type="text/css" />');
                         simbaAdEngine($, _);
                     });
