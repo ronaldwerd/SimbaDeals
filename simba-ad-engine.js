@@ -170,7 +170,7 @@ simbaAdEngine = function($, _) {
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
-        var adBlock = adBlockCollection[1];
+        var adBlock = adBlockCollection[0];
 
         var m = findMerchant(merchantList, adBlock.merchantId);
 
@@ -189,11 +189,26 @@ simbaAdEngine = function($, _) {
                 price: adBlock.salePrice
             });
 
+        var backProducts = '';
+
+        for(var i = 1; i < adBlockCollection.length; i++) {
+
+            var adBlock = adBlockCollection[i];
+
+            var backProduct = _.template('<div class="productContainer"><img src="<%=src %>" alt="<%= alt %>" /></div>',
+            {
+                src: adBlock.imageURL,
+                alt: adBlock.name
+            });
+
+            backProducts += backProduct;
+        }
+
         var template = _.template(
             '<div class="simbaLeader">' +
             '<div class="smFooter"></div>' +
             '<div class="smHeader">' +
-                '<div class="nav" simba-position="1">' +
+                '<div class="nav" simba-position="0">' +
                     '<img src="/adgroups/leader/prev-btn.png" class="prev" /><img src="/adgroups/leader/next-btn.png" class="next" />' +
                 '</div>' +
             '</div>' +
@@ -203,12 +218,9 @@ simbaAdEngine = function($, _) {
                 '<div class="meta">' +
                     '<div class="meta-inner"><%= metaData %></div>' +
                 '</div>' +
-                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
-                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
-                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
-                '<div class="productContainer"><img src="adgroups/leader/productImg.png" alt="#" /></div>' +
+                '<%= backProducts %>' +
             '</div>' +
-            '</div>', { metaData: metaData, bodyImg: bodyImg});
+            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: backProducts });
 
 
             $(element).attr('data-url',adBlock.deepLink);
