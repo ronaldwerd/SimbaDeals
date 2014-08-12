@@ -73,7 +73,7 @@ simbaAdEngine = function($, _) {
         getProducts(c);
     }
 
-    /*
+
     var renderBigBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[1];
@@ -168,7 +168,7 @@ simbaAdEngine = function($, _) {
             $('.next').trigger('click')
         }, 3500);
     }
-    */
+    
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
@@ -307,6 +307,23 @@ simbaAdEngine = function($, _) {
 
             $('.backProducts > .backProduct').remove();
             $('.backProducts').append(backProducts, null);
+
+
+            var adBlock = adBlockCollection[pos];
+
+            //console.log(adBlock);
+
+            var img = $.find('.simbaAdImage')[0];
+
+
+            $(img).attr('src', adBlock.imageURL);
+            $(img).attr('alt', adBlock.name);
+
+            $('.brand').text(m.name);
+            $('.description').text(adBlock.name.truncate(40));
+            $('.price').text('$' + adBlock.salePrice);
+
+            $(element).attr('data-url',adBlock.deepLink);
 
             $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
         }
