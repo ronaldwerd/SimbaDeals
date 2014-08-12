@@ -76,7 +76,7 @@ simbaAdEngine = function($, _) {
         getProducts(c);
     }
 
-    /*
+
     var renderBigBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[1];
@@ -170,7 +170,7 @@ simbaAdEngine = function($, _) {
         setInterval(function() {
             $('.next').trigger('click')
         }, 4500);
-    }*/
+    }
 
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
