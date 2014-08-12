@@ -6,6 +6,9 @@ simbaAdEngine = function($, _) {
     };
 
     String.prototype.truncate = function(m) {
+
+        if(String.length >= m) return this;
+
         return (this.length > m)
             ? $.trim(this).substring(0, m).split(" ").slice(0, -1).join(" ") + "..."
             : this;
@@ -73,7 +76,7 @@ simbaAdEngine = function($, _) {
         getProducts(c);
     }
 
-
+    /*
     var renderBigBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[1];
@@ -167,7 +170,7 @@ simbaAdEngine = function($, _) {
         setInterval(function() {
             $('.next').trigger('click')
         }, 4500);
-    }
+    }*/
 
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
@@ -187,15 +190,13 @@ simbaAdEngine = function($, _) {
             '<span class="description"><%= description %></span>' +
             '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save!</span>',
             {
-                merchant: m.name.truncate(40),
+                merchant: m.name.truncate(50),
                 description: adBlock.name,
                 price: adBlock.salePrice
             });
 
 
         var renderBackProducts = function(adBlockCollection, filterPos) {
-
-            console.log(filterPos);
 
             var backProducts = '';
 
@@ -308,13 +309,8 @@ simbaAdEngine = function($, _) {
             $('.backProducts > .backProduct').remove();
             $('.backProducts').append(backProducts, null);
 
-
             var adBlock = adBlockCollection[pos];
-
-            //console.log(adBlock);
-
             var img = $.find('.simbaAdImage')[0];
-
 
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
