@@ -73,6 +73,7 @@ simbaAdEngine = function($, _) {
         getProducts(c);
     }
 
+    /*
     var renderBigBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[1];
@@ -167,6 +168,7 @@ simbaAdEngine = function($, _) {
             $('.next').trigger('click')
         }, 3500);
     }
+    */
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
@@ -285,6 +287,11 @@ simbaAdEngine = function($, _) {
             $(adBlockElement).parent().attr('data-url', adBlock.deepLink);
 
             $(nav).attr('simba-position', clickPosition);
+
+            var backProducts = renderBackProducts(adBlockCollection, clickPosition);
+
+            $('.backProducts > .backProduct').remove();
+            $('.backProducts').append(backProducts, null);
         }
 
 
