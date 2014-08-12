@@ -292,6 +292,8 @@ simbaAdEngine = function($, _) {
 
             $('.backProducts > .backProduct').remove();
             $('.backProducts').append(backProducts, null);
+
+            $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
         }
 
 
