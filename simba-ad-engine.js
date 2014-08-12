@@ -15,7 +15,7 @@ simbaAdEngine = function($, _) {
     };
 
     var categoryCodes = [
-        { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 8 }
+        { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 5 }
     ];
 
     var findMerchant = function(merchantList, merchantId) {
@@ -173,6 +173,11 @@ simbaAdEngine = function($, _) {
     }
 
 
+
+
+
+
+
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[0];
@@ -240,8 +245,8 @@ simbaAdEngine = function($, _) {
 
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
-        $(element).find('.meta-inner').click(function() {
 
+        $(element).find('.meta-inner').click(function() {
             var productUrl = $(element).attr('data-url');
             location.href = productUrl;
         });
@@ -315,9 +320,9 @@ simbaAdEngine = function($, _) {
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
 
-            $('.brand').text(m.name);
-            $('.description').text(adBlock.name.truncate(40));
-            $('.price').text('$' + adBlock.salePrice);
+            $('.simbaLeader > .smbody > .meta .meta-inner .brand').text(m.name);
+            $('.simbaLeader > .smbody > .meta .meta-inner .brand').text(adBlock.name.truncate(40));
+            $('.simbaLeader > .smbody > .meta .meta-inner .brand').text('$' + adBlock.salePrice);
 
             $(element).attr('data-url',adBlock.deepLink);
 
