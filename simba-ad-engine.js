@@ -235,8 +235,6 @@ simbaAdEngine = function($, _) {
             '</div>' +
             '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection, 0) });
 
-        console.log("FIRST SET!");
-
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
         $(element).find('.meta-inner').click(function() {
@@ -280,9 +278,6 @@ simbaAdEngine = function($, _) {
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
 
-
-            //console.log(adBlockElement);
-
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name.truncate(40));
             $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
@@ -292,11 +287,6 @@ simbaAdEngine = function($, _) {
             $(nav).attr('simba-position', clickPosition);
         }
 
-        /*
-        $(adBlockElement).find('.productContainer').click(function() {
-            console.log(this)
-        });*/
-
 
         var backProductSelect = function() {
 
@@ -305,8 +295,6 @@ simbaAdEngine = function($, _) {
             $('.simbaLeader > .smBody > .backproducts > .productContainer').remove();
 
             var backProducts = renderBackProducts(adBlockCollection, pos);
-
-            console.log(backProducts);
 
             $('.backProducts > .backProduct').remove();
             $('.backProducts').append(backProducts, null);
