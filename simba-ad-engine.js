@@ -191,29 +191,31 @@ simbaAdEngine = function($, _) {
             });
 
 
-        var renderBackProducts = function(adBlockCollection) {
+        var renderBackProducts = function(adBlockCollection, filterPos) {
+
+            console.log(filterPos);
 
             var backProducts = '';
 
             for(var i = 0; i < adBlockCollection.length; i++) {
 
-                var adBlock = adBlockCollection[i];
+                if(filterPos != i) {
 
-                var backProduct = _.template('<div class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
-                {
-                    src: adBlock.imageURL,
-                    alt: adBlock.name,
-                    pos: i
-                });
+                    var adBlock = adBlockCollection[i];
 
-                backProducts += backProduct;
+                    var backProduct = _.template('<div class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
+                    {
+                        src: adBlock.imageURL,
+                        alt: adBlock.name,
+                        pos: i
+                    });
+
+                    backProducts += backProduct;
+                }
             }
 
             return backProducts;
         }
-
-        var adBlockCollectionCopy = adBlockCollection.slice(0);
-        adBlockCollectionCopy.splice(0, 1);
 
         var template = _.template(
             '<div class="simbaLeader">' +
@@ -231,16 +233,17 @@ simbaAdEngine = function($, _) {
                 '</div>' +
                 '<div class="backProducts"><%= backProducts %></div>' +
             '</div>' +
-            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollectionCopy) });
+            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection, 0) });
 
+        console.log("FIRST SET!");
 
-            $(element).attr('data-url',adBlock.deepLink);
-            $(element).append(template, null);
-            $(element).find('.meta-inner').click(function() {
+        $(element).attr('data-url',adBlock.deepLink);
+        $(element).append(template, null);
+        $(element).find('.meta-inner').click(function() {
 
-                var productUrl = $(element).attr('data-url');
-                location.href = productUrl;
-            });
+            var productUrl = $(element).attr('data-url');
+            location.href = productUrl;
+        });
 
 
         var cycleButtons = $(element).children().find('.prev, .next');
@@ -298,15 +301,10 @@ simbaAdEngine = function($, _) {
         var backProductSelect = function() {
 
             var pos = parseInt($(this).attr('data-ad-block-pos'));
-            var adBlockCollectionCopy = adBlockCollection.slice(0);
-
-            adBlockCollectionCopy.splice(pos, 1);
-
-            console.log(adBlockCollectionCopy);
 
             $('.simbaLeader > .smBody > .backproducts > .productContainer').remove();
 
-            var backProducts = renderBackProducts(adBlockCollectionCopy);
+            var backProducts = renderBackProducts(adBlockCollection, pos);
 
             console.log(backProducts);
 
