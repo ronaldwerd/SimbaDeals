@@ -120,7 +120,7 @@ simbaAdEngine = function($, _) {
         });
 
 
-        var cycleButtons = $(element).children().find('.prev, .next');
+        var cycleButtons = $('.simbaBigBox').find('.prev, .next');
 
         var cycleAdblock = function() {
 
@@ -168,7 +168,7 @@ simbaAdEngine = function($, _) {
         $(cycleButtons).click(cycleAdblock);
 
         setInterval(function() {
-            $('.next').trigger('click')
+            $(element).find('.next').trigger('click')
         }, 4500);
     }
 
@@ -252,7 +252,7 @@ simbaAdEngine = function($, _) {
         });
 
 
-        var cycleButtons = $(element).children().find('.prev, .next');
+        var cycleButtonsLeader = $('.simbaLeader').children().find('.prev, .next');
 
         var cycleAdblock = function() {
 
@@ -321,8 +321,8 @@ simbaAdEngine = function($, _) {
             $(img).attr('alt', adBlock.name);
 
             $('.simbaLeader > .smbody > .meta .meta-inner .brand').text(m.name);
-            $('.simbaLeader > .smbody > .meta .meta-inner .brand').text(adBlock.name.truncate(40));
-            $('.simbaLeader > .smbody > .meta .meta-inner .brand').text('$' + adBlock.salePrice);
+            $('.simbaLeader > .smbody > .meta .meta-inner .description').text(adBlock.name.truncate(40));
+            $('.simbaLeader > .smbody > .meta .meta-inner .price').text('$' + adBlock.salePrice);
 
             $(element).attr('data-url',adBlock.deepLink);
 
@@ -331,7 +331,7 @@ simbaAdEngine = function($, _) {
 
         $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
 
-        $(cycleButtons).click(cycleAdblock);
+        $(cycleButtonsLeader).click(cycleAdblock);
     }
 
     function refresh() {
