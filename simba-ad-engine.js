@@ -166,9 +166,9 @@ simbaAdEngine = function($, _) {
 
         setInterval(function() {
             $('.next').trigger('click')
-        }, 3500);
+        }, 4500);
     }
-    
+
 
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
