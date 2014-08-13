@@ -178,7 +178,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name.truncate(50));
-            $($(adBlockElement).find('.price')[0]).text('$' + parseInt(adBlock.salePrice).currencyFormat(2));
+            $($(adBlockElement).find('.price')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
 
