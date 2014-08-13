@@ -119,9 +119,12 @@
 }
 .simbaBigBox .smBody .nav img {
     height: 12px;
-    width: 13px;
-    padding-left: 2px;
+    width: 12px;
     float: left;
+}
+.simbaBigBox .smBody .nav .next {
+	position: relative;
+	left: 2px;
 }
 
 .simbaBigBox .smBody .smArrow {

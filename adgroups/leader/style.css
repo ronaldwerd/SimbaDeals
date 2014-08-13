@@ -19,8 +19,10 @@
 	display: table;
 	float: left;
     height: 90px;
-    width: 204px;
+    width: 209px;
     background-image: url('/adgroups/leader/leader-header.png');
+    background-position: center top;
+    background-repeat: no-repeat;
 }
 
 .simbaLeader .smFooter {
@@ -143,21 +145,25 @@
 .simbaLeader .smBody {
 	display: inline-block;
 	float: right;
-	width: 485px;
+	width: 482px;
     background-color: #ececec;
     position: relative;
 }
 .simbaLeader .smHeader .nav {
-    height: 12px;
+    height: 14px;
     width: 36px;
-    float: right;
+    left: 178px;
     margin: 0px auto;
-    top: 73px;
+    top: 72px;
+    display: table-cell;
     position: relative;
 }
 .simbaLeader .smHeader .nav img {
     height: 12px;
     width: 12px;
-    padding-left: 2px;
     float: left;
+}
+.simbaLeader .smHeader .nav .next {
+	left: 2px;
+	position: relative;
 }

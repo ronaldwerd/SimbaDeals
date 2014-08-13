@@ -15,7 +15,7 @@ simbaAdEngine = function($, _) {
     };
 
     var categoryCodes = [
-        { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 5 }
+        { code: 'SOME_AD_CODE', categoryId: '34635776', productCount: 5 }
     ];
 
     var findMerchant = function(merchantList, merchantId) {
