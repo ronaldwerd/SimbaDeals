@@ -115,7 +115,7 @@ simbaAdEngine = function($, _) {
                                   '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Hurry &amp; Save!</span>',
                                    {
                                      merchant: m.name,
-                                     description: adBlock.name,
+                                     description: adBlock.name.truncate(50),
                                      price: parseInt(adBlock.salePrice).currencyFormat(2)
                                    });
 
@@ -177,7 +177,7 @@ simbaAdEngine = function($, _) {
 
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
-            $($(adBlockElement).find('.description')[0]).text(adBlock.name);
+            $($(adBlockElement).find('.description')[0]).text(adBlock.name.truncate(50));
             $($(adBlockElement).find('.price')[0]).text('$' + parseInt(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
