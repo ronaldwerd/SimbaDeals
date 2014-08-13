@@ -347,12 +347,17 @@ simbaAdEngine = function($, _) {
 
             $(element).attr('data-url',adBlock.deepLink);
 
-            $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .smBody > .backProducts > .backProduct').click(backProductSelect);
         }
 
-        $('.simbaLeader > .smBody > .backproducts > .backProduct').click(backProductSelect);
+        $('.simbaLeader > .smBody > .backProducts > .backProduct').click(backProductSelect);
+
 
         $(cycleButtonsLeader).click(cycleAdblock);
+
+        setInterval(function() {
+            $(element).find('.next').trigger('click')
+        }, 4500);
     }
 
     function refresh() {
