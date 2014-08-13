@@ -28,27 +28,6 @@ simbaAdEngine = function($, _) {
         return m;
     }
 
-    var shrinkToFit = function() {
-        $('.simbaAdImage').each(function(i, item) {
-            var img_height = $(item).height();
-            var div_height = $(item).parent().height();
-            if(img_height<div_height){
-                //IMAGE IS SHORTER THAN CONTAINER HEIGHT - CENTER IT VERTICALLY
-                var newMargin = (div_height-img_height)/2+'px';
-                $(item).css({'margin-top': newMargin });
-            }else if(img_height>div_height){
-                //IMAGE IS GREATER THAN CONTAINER HEIGHT - REDUCE HEIGHT TO CONTAINER MAX - SET WIDTH TO AUTO
-                $(item).css({'width': 'auto', 'height': '100%'});
-                //CENTER IT HORIZONTALLY
-                var img_width = $(item).width();
-                var div_width = $(item).parent().width();
-                var newMargin = (div_width-img_width)/2+'px';
-                $(item).css({'margin-left': newMargin});
-            }
-        });
-    }
-
-
     var queryForProducts = function(categoryCode, callback) {
 
         var c = $.grep(categoryCodes, function(e) {
@@ -97,26 +76,6 @@ simbaAdEngine = function($, _) {
         getProducts(c);
     }
 
-
-    var shrinkToFit = function() {
-        $('img.simba-ad-img').each(function(i, item) {
-            var img_height = $(item).height();
-            var div_height = $(item).parent().height();
-            if(img_height<div_height){
-                //IMAGE IS SHORTER THAN CONTAINER HEIGHT - CENTER IT VERTICALLY
-                var newMargin = (div_height-img_height)/2+'px';
-                $(item).css({'margin-top': newMargin });
-            }else if(img_height>div_height){
-                //IMAGE IS GREATER THAN CONTAINER HEIGHT - REDUCE HEIGHT TO CONTAINER MAX - SET WIDTH TO AUTO
-                $(item).css({'width': 'auto', 'height': '100%'});
-                //CENTER IT HORIZONTALLY
-                var img_width = $(item).width();
-                var div_width = $(item).parent().width();
-                var newMargin = (div_width-img_width)/2+'px';
-                $(item).css({'margin-left': newMargin});
-            }
-        });
-    }
 
     var renderBigBox = function(element, merchantList, adBlockCollection) {
 
@@ -198,7 +157,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name);
-            $($(adBlockElement).find('.price')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
+            $($(adBlockElement).find('.price')[0]).text('$' + parseInt(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
 
@@ -225,7 +184,7 @@ simbaAdEngine = function($, _) {
 
         var m = findMerchant(merchantList, adBlock.merchantId);
 
-        var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" class="simba-ad-img" src="<%= src %>" alt="<%= alt %>" /></div>',
+        var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
@@ -252,7 +211,7 @@ simbaAdEngine = function($, _) {
 
                     var adBlock = adBlockCollection[i];
 
-                    var backProduct = _.template('<div class="backProduct" data-ad-block-pos="<%= pos %>" ><img class="simba-ad-img" src="<%=src %>" alt="<%= alt %>" /></div>',
+                    var backProduct = _.template('<div class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
                     {
                         src: adBlock.imageURL,
                         alt: adBlock.name,
@@ -329,7 +288,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name.truncate(40));
-            $($(adBlockElement).find('.price')[0]).text('$' + parseFloat(adBlock.salePrice)).currencyFormat(2);
+            $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
 
             $(adBlockElement).parent().attr('data-url', adBlock.deepLink);
 
@@ -363,7 +322,7 @@ simbaAdEngine = function($, _) {
 
             $('.simbaLeader > .smbody > .meta .meta-inner .brand').text(m.name);
             $('.simbaLeader > .smbody > .meta .meta-inner .description').text(adBlock.name.truncate(40));
-            $('.simbaLeader > .smbody > .meta .meta-inner .price').text('$' + parseFloat(adBlock.salePrice)).currencyFormat(2);
+            $('.simbaLeader > .smbody > .meta .meta-inner .price').text('$' + adBlock.salePrice);
 
             $(element).attr('data-url',adBlock.deepLink);
 
@@ -399,8 +358,6 @@ simbaAdEngine = function($, _) {
                     }
                 }
             });
-
-            shrinkToFit();
         });
     }
 
