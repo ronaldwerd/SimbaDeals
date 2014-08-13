@@ -309,7 +309,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.brand')[0]).text(m.name);
             $($(adBlockElement).find('.description')[0]).text(adBlock.name.truncate(40));
-            $($(adBlockElement).find('.price')[0]).text('$' + adBlock.salePrice);
+            $($(adBlockElement).find('.price')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().attr('data-url', adBlock.deepLink);
 
@@ -343,7 +343,7 @@ simbaAdEngine = function($, _) {
 
             $('.simbaLeader > .smbody > .meta .meta-inner .brand').text(m.name);
             $('.simbaLeader > .smbody > .meta .meta-inner .description').text(adBlock.name.truncate(40));
-            $('.simbaLeader > .smbody > .meta .meta-inner .price').text('$' + adBlock.salePrice);
+            $('.simbaLeader > .smbody > .meta .meta-inner .price').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(element).attr('data-url',adBlock.deepLink);
 
