@@ -19,7 +19,7 @@
 	position: relative;
 	display: inline-block;
     height: 90px;
-    width: 209px;
+    width: 211px;
     background-image: url('/adgroups/leader/leader-header.png');
     background-position: center top;
     background-repeat: no-repeat;
@@ -145,7 +145,7 @@
 .simbaLeader .smBody {
 	display: inline-block;
 	float: right;
-	width: 482px;
+	width: 480px;
     background-color: #ececec;
     position: relative;
 }
