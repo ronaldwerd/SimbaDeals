@@ -16,8 +16,8 @@
 }
 
 .simbaLeader .smHeader {
-	display: table;
-	float: left;
+	position: relative;
+	display: inline-block;
     height: 90px;
     width: 209px;
     background-image: url('/adgroups/leader/leader-header.png');
@@ -151,12 +151,12 @@
 }
 .simbaLeader .smHeader .nav {
     height: 14px;
-    width: 36px;
-    left: 178px;
-    margin: 0px auto;
-    top: 72px;
-    display: table-cell;
-    position: relative;
+    width: 26px;
+    right: 0px;
+    margin-right: 5px;
+    bottom: 0px;
+    margin-bottom: 5px;
+    position: absolute;
 }
 .simbaLeader .smHeader .nav img {
     height: 12px;
