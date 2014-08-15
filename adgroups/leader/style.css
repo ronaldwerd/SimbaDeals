@@ -16,11 +16,13 @@
 }
 
 .simbaLeader .smHeader {
-	display: table;
-	float: left;
+	position: relative;
+	display: inline-block;
     height: 90px;
-    width: 204px;
+    width: 211px;
     background-image: url('/adgroups/leader/leader-header.png');
+    background-position: center top;
+    background-repeat: no-repeat;
 }
 
 .simbaLeader .smFooter {
@@ -143,21 +145,25 @@
 .simbaLeader .smBody {
 	display: inline-block;
 	float: right;
-	width: 485px;
+	width: 480px;
     background-color: #ececec;
     position: relative;
 }
 .simbaLeader .smHeader .nav {
-    height: 12px;
-    width: 36px;
-    float: right;
-    margin: 0px auto;
-    top: 73px;
-    position: relative;
+    height: 14px;
+    width: 26px;
+    right: 0px;
+    margin-right: 5px;
+    bottom: 0px;
+    margin-bottom: 5px;
+    position: absolute;
 }
 .simbaLeader .smHeader .nav img {
     height: 12px;
     width: 12px;
-    padding-left: 2px;
     float: left;
+}
+.simbaLeader .smHeader .nav .next {
+	left: 2px;
+	position: relative;
 }

@@ -42,6 +42,7 @@
     height: inherit;
     padding: 0px;
     cursor: pointer;
+    position: relative;
 }
 
 .simbaBigBox .smBody .meta .brand {
@@ -110,18 +111,22 @@
 
 .simbaBigBox .smBody .nav {
     height: 12px;
-    width: 36px;
+    width: 26px;
 	bottom: 0px;
-    margin-left: -28px;
-    top: 130px;
-    position: relative;
+	margin-bottom: 5px;
+	right: 0px;
+	margin-right: 7px;
+    position: absolute;
     z-index: 1000;
 }
 .simbaBigBox .smBody .nav img {
     height: 12px;
-    width: 13px;
-    padding-left: 2px;
+    width: 12px;
     float: left;
+}
+.simbaBigBox .smBody .nav .next {
+	position: relative;
+	left: 2px;
 }
 
 .simbaBigBox .smBody .smArrow {
