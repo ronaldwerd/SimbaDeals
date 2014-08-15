@@ -101,7 +101,7 @@ simbaAdEngine = function($, _) {
 
         var m = findMerchant(merchantList, adBlock.merchantId);
 
-        var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
+        var bodyImg = _.template('<div class="simbaProductContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
@@ -119,26 +119,26 @@ simbaAdEngine = function($, _) {
 
         var template = _.template(
             '<div class="simbaBigBox">' +
-            '<div class="smHeader"></div>' +
-            '<div class="smBody">' +
-            '<div class="smArrow"></div>' +
+            '<div class="simbaHeader"></div>' +
+            '<div class="simbaBody">' +
+            '<div class="simbaArrow"></div>' +
             '<%= bodyImg %>' +
             '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-            '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="prev" /><img src="/adgroups/bigbox/next-btn.png" class="next" /></div>' +
+            '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="simba-prev" /><img src="/adgroups/bigbox/next-btn.png" class="simba-next" /></div>' +
             '</div></div>' +
-            '<div class="smFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
+            '<div class="simbaFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
 
 
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
-        $(element).find('.productContainer, .meta-inner').click(function() {
+        $(element).find('.simbaProductContainer, .meta-inner').click(function() {
 
             var productUrl = $(element).attr('data-url');
             location.href = productUrl;
         });
 
 
-        var cycleButtons = $('.simbaBigBox').find('.prev, .next');
+        var cycleButtons = $('.simbaBigBox').find('.simba-prev, .simba-next');
 
         var cycleAdblock = function() {
 
@@ -146,7 +146,7 @@ simbaAdEngine = function($, _) {
 
             var clickPosition = parseInt($(nav).attr('simba-position'));
 
-            if($(this).hasClass('next')) {
+            if($(this).hasClass('simba-next')) {
 
                 clickPosition++;
 
@@ -155,7 +155,7 @@ simbaAdEngine = function($, _) {
                 }
             }
 
-            if($(this).hasClass('prev')) {
+            if($(this).hasClass('simba-prev')) {
 
                 clickPosition--;
 
@@ -186,7 +186,7 @@ simbaAdEngine = function($, _) {
         $(cycleButtons).click(cycleAdblock);
 
         setInterval(function() {
-            $(element).find('.next').trigger('click')
+            $(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 
@@ -202,7 +202,7 @@ simbaAdEngine = function($, _) {
 
         var m = findMerchant(merchantList, adBlock.merchantId);
 
-        var bodyImg = _.template('<div class="productContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
+        var bodyImg = _.template('<div class="simbaProductContainer"><img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" /></div>',
             {
                 src: adBlock.imageURL,
                 alt: adBlock.name
@@ -245,13 +245,13 @@ simbaAdEngine = function($, _) {
 
         var template = _.template(
             '<div class="simbaLeader">' +
-            '<div class="smFooter"></div>' +
-            '<div class="smHeader">' +
+            '<div class="simbaFooter"></div>' +
+            '<div class="simbaHeader">' +
                 '<div class="nav" simba-position="0">' +
-                    '<img src="/adgroups/leader/prev-btn.png" class="prev" /><img src="/adgroups/leader/next-btn.png" class="next" />' +
+                    '<img src="/adgroups/leader/prev-btn.png" class="simba-prev" /><img src="/adgroups/leader/next-btn.png" class="simba-next" />' +
                 '</div>' +
             '</div>' +
-            '<div class="smBody">' +
+            '<div class="simbaBody">' +
                 '<div class="arrow"></div>' +
                 '<%= bodyImg %>' +
                 '<div class="meta">' +
@@ -270,7 +270,7 @@ simbaAdEngine = function($, _) {
         });
 
 
-        var cycleButtonsLeader = $('.simbaLeader').children().find('.prev, .next');
+        var cycleButtonsLeader = $('.simbaLeader').children().find('.simba-prev, .simba-next');
 
         var cycleAdblock = function() {
 
@@ -278,7 +278,7 @@ simbaAdEngine = function($, _) {
 
             var clickPosition = parseInt($(nav).attr('simba-position'));
 
-            if($(this).hasClass('next')) {
+            if($(this).hasClass('simba-next')) {
 
                 clickPosition++;
 
@@ -287,7 +287,7 @@ simbaAdEngine = function($, _) {
                 }
             }
 
-            if($(this).hasClass('prev')) {
+            if($(this).hasClass('simba-prev')) {
 
                 clickPosition--;
 
@@ -317,7 +317,7 @@ simbaAdEngine = function($, _) {
             $('.backProducts > .backProduct').remove();
             $('.backProducts').append(backProducts, null);
 
-            $('.simbaLeader > .smBody > .backProducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .simbaBody > .backProducts > .backProduct').click(backProductSelect);
         }
 
 
@@ -325,7 +325,7 @@ simbaAdEngine = function($, _) {
 
             var pos = parseInt($(this).attr('data-ad-block-pos'));
 
-            $('.simbaLeader > .smBody > .backProducts > .productContainer').remove();
+            $('.simbaLeader > .simbaBody > .backProducts > .simbaProductContainer').remove();
 
             var backProducts = renderBackProducts(adBlockCollection, pos);
 
@@ -338,22 +338,22 @@ simbaAdEngine = function($, _) {
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
 
-            $('.simbaLeader > .smBody > .meta .meta-inner .brand').text(m.name);
-            $('.simbaLeader > .smBody > .meta .meta-inner .description').text(adBlock.name.truncate(40));
-            $('.simbaLeader > .smBody > .meta .meta-inner .price').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
+            $('.simbaLeader > .simbaBody > .meta .meta-inner .brand').text(m.name);
+            $('.simbaLeader > .simbaBody > .meta .meta-inner .description').text(adBlock.name.truncate(40));
+            $('.simbaLeader > .simbaBody > .meta .meta-inner .price').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(element).attr('data-url',adBlock.deepLink);
 
-            $('.simbaLeader > .smBody > .backProducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .simbaBody > .backProducts > .backProduct').click(backProductSelect);
         }
 
-        $('.simbaLeader > .smBody > .backProducts > .backProduct').click(backProductSelect);
+        $('.simbaLeader > .simbaBody > .backProducts > .backProduct').click(backProductSelect);
 
 
         $(cycleButtonsLeader).click(cycleAdblock);
 
         setInterval(function() {
-            $(element).find('.next').trigger('click')
+            $(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 

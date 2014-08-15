@@ -11,31 +11,31 @@
     width: 300px;
 }
 
-.simbaBigBox .smHeader {
+.simbaBigBox .simbaHeader {
     height: 53px;
     background-image: url('bigbox-header.png');
     border-bottom: solid 1px #dadada;
 }
 
-.simbaBigBox .smFooter {
+.simbaBigBox .simbaFooter {
     height: 46px;
     background-image: url('bigbox-footer.png');
     border-top: solid 1px #dadada;
 }
 
-.simbaBigBox .smBody .productContainer {
+.simbaBigBox .simbaBody .simbaProductContainer {
     overflow: hidden;
     width: 111px;
     display: inline-block;
     cursor: pointer;
 }
-.simbaBigBox .smBody img {
+.simbaBigBox .simbaBody img {
     float: left;
     height: 149px;
     width: 110px;
 }
 
-.simbaBigBox .smBody .meta {
+.simbaBigBox .simbaBody .meta {
     display: table;
     float: right;
     width: 188px;
@@ -45,14 +45,14 @@
     position: relative;
 }
 
-.simbaBigBox .smBody .meta .brand {
+.simbaBigBox .simbaBody .meta .brand {
     font-size: 10px;
     color: #3e3a3b;
     display: block;
     padding: 0px 0px 6px 0px;
 }
 
-.simbaBigBox .smBody .meta .description {
+.simbaBigBox .simbaBody .meta .description {
     font-size: 11.5px;
     color: #3e3a3b;
     letter-spacing: 0.025em;
@@ -61,7 +61,7 @@
     display: block;
 }
 
-.simbaBigBox .smBody .meta .price {
+.simbaBigBox .simbaBody .meta .price {
     display: inline-block;
     float: left;
     height: 18px !important;
@@ -74,7 +74,7 @@
     padding: 0px 6px;
     line-height: 18px;
 }
-.simbaBigBox .smBody .meta .priceTag {
+.simbaBigBox .simbaBody .meta .priceTag {
     display: inline-block;
     float: left;
     height: 18px;
@@ -83,14 +83,14 @@
     background-image: url('price-tag.png');
 }
 
-.simbaBigBox .smBody .meta-inner {
+.simbaBigBox .simbaBody .meta-inner {
     display: table-cell;
     vertical-align: middle;
     padding: 10px;
     text-align: left;
 }
 
-.simbaBigBox .smBody .meta-inner .link {
+.simbaBigBox .simbaBody .meta-inner .link {
 	float: left;
 	color: #f24e21;
 	font-size: 10px;
@@ -101,7 +101,7 @@
 	margin-top: 12px;
 }
 
-.simbaBigBox .smBody {
+.simbaBigBox .simbaBody {
     background-color: #ececec;
     height: 149px;
     width: 300px;
@@ -109,7 +109,7 @@
     border-bottom: #dadada;
 }
 
-.simbaBigBox .smBody .nav {
+.simbaBigBox .simbaBody .nav {
     height: 12px;
     width: 26px;
 	bottom: 0px;
@@ -119,17 +119,17 @@
     position: absolute;
     z-index: 1000;
 }
-.simbaBigBox .smBody .nav img {
+.simbaBigBox .simbaBody .nav img {
     height: 12px;
     width: 12px;
     float: left;
 }
-.simbaBigBox .smBody .nav .next {
+.simbaBigBox .simbaBody .nav .simba-next {
 	position: relative;
 	left: 2px;
 }
 
-.simbaBigBox .smBody .smArrow {
+.simbaBigBox .simbaBody .simbaArrow {
 	position: absolute;
 	width: 15px;
 	height: 28px;

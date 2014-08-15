@@ -15,7 +15,7 @@
     cursor: pointer;
 }
 
-.simbaLeader .smHeader {
+.simbaLeader .simbaHeader {
 	position: relative;
 	display: inline-block;
     height: 90px;
@@ -25,7 +25,7 @@
     background-repeat: no-repeat;
 }
 
-.simbaLeader .smFooter {
+.simbaLeader .simbaFooter {
 	display: inline-block;
 	float: left;
     height: 90px;
@@ -34,7 +34,7 @@
     border-right: solid 1px #dadada;
 }
 
-.simbaLeader .smBody .productContainer {
+.simbaLeader .simbaBody .simbaProductContainer {
     float: left;
     overflow: hidden;
     width: 67px;
@@ -44,13 +44,13 @@
 }
 
 
-.simbaLeader .smBody .productContainer img {
+.simbaLeader .simbaBody .simbaProductContainer img {
     float: left;
     height: 90px;
     width: 67px;
 }
 
-.simbaLeader .smBody .backProduct {
+.simbaLeader .simbaBody .backProduct {
     float: left;
     overflow: hidden;
     width: 67px;
@@ -60,14 +60,14 @@
 }
 
 
-.simbaLeader .smBody .backProduct img {
+.simbaLeader .simbaBody .backProduct img {
     float: left;
     height: 90px;
     width: 67px;
 }
 
 
-.simbaLeader .smBody .arrow {
+.simbaLeader .simbaBody .arrow {
 	position: absolute;
 	width: 15px;
 	height: 28px;
@@ -77,14 +77,14 @@
 	background-image: url('/adgroups/leader/arrow.png');
 }
 
-.simbaLeader .smBody .meta {
+.simbaLeader .simbaBody .meta {
     display: table;
     float: left;
     height: 90px;
     width: 145px;
 }
 
-.simbaLeader .smBody .meta .brand {
+.simbaLeader .simbaBody .meta .brand {
     font-size: 8.5px;
     color: #3e3a3b;
     display: block;
@@ -92,7 +92,7 @@
     width: 100%;
 }
 
-.simbaLeader .smBody .meta .description {
+.simbaLeader .simbaBody .meta .description {
     font-size: 10.5px;
     color: #3e3a3b;
     letter-spacing: 0.025em;
@@ -102,7 +102,7 @@
     width: 100%;
 }
 
-.simbaLeader .smBody .meta .price {
+.simbaLeader .simbaBody .meta .price {
     display: inline-block;
     float: left;
     height: 18px !important;
@@ -115,7 +115,7 @@
     padding: 0px 3px;
     line-height: 19px;
 }
-.simbaLeader .smBody .meta .priceTag {
+.simbaLeader .simbaBody .meta .priceTag {
     display: inline-block;
     float: left;
     height: 18px;
@@ -124,14 +124,14 @@
     background-image: url('/adgroups/leader/price-tag.png');
 }
 
-.simbaLeader .smBody .meta-inner {
+.simbaLeader .simbaBody .meta-inner {
     display: table-cell;
     vertical-align: middle;
     padding: 10px;
     text-align: left;
 }
 
-.simbaLeader .smBody .meta-inner .link {
+.simbaLeader .simbaBody .meta-inner .link {
 	float: left;
 	color: #f24e21;
 	font-size: 8px;
@@ -142,14 +142,14 @@
 	margin-top: 9px;
 }
 
-.simbaLeader .smBody {
+.simbaLeader .simbaBody {
 	display: inline-block;
 	float: right;
 	width: 480px;
     background-color: #ececec;
     position: relative;
 }
-.simbaLeader .smHeader .nav {
+.simbaLeader .simbaHeader .nav {
     height: 14px;
     width: 26px;
     right: 0px;
@@ -158,12 +158,12 @@
     margin-bottom: 5px;
     position: absolute;
 }
-.simbaLeader .smHeader .nav img {
+.simbaLeader .simbaHeader .nav img {
     height: 12px;
     width: 12px;
     float: left;
 }
-.simbaLeader .smHeader .nav .next {
+.simbaLeader .simbaHeader .nav .simba-next {
 	left: 2px;
 	position: relative;
 }
