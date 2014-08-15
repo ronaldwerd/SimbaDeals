@@ -124,7 +124,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaArrow"></div>' +
             '<%= bodyImg %>' +
             '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-            '<div class="nav" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="simba-prev" /><img src="/adgroups/bigbox/next-btn.png" class="simba-next" /></div>' +
+            '<div class="simba-navigation" simba-position="1"><img src="/adgroups/bigbox/prev-btn.png" class="simba-prev" /><img src="/adgroups/bigbox/next-btn.png" class="simba-next" /></div>' +
             '</div></div>' +
             '<div class="simbaFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
 
@@ -247,7 +247,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaLeader">' +
             '<div class="simbaFooter"></div>' +
             '<div class="simbaHeader">' +
-                '<div class="nav" simba-position="0">' +
+                '<div class="simba-navigation" simba-position="0">' +
                     '<img src="/adgroups/leader/prev-btn.png" class="simba-prev" /><img src="/adgroups/leader/next-btn.png" class="simba-next" />' +
                 '</div>' +
             '</div>' +

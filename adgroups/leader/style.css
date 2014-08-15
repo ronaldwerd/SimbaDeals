@@ -149,7 +149,7 @@
     background-color: #ececec;
     position: relative;
 }
-.simbaLeader .simbaHeader .nav {
+.simbaLeader .simbaHeader .simba-navigation {
     height: 14px;
     width: 26px;
     right: 0px;
@@ -158,12 +158,12 @@
     margin-bottom: 5px;
     position: absolute;
 }
-.simbaLeader .simbaHeader .nav img {
+.simbaLeader .simbaHeader .simba-navigation img {
     height: 12px;
     width: 12px;
     float: left;
 }
-.simbaLeader .simbaHeader .nav .simba-next {
+.simbaLeader .simbaHeader .simba-navigation .simba-next {
 	left: 2px;
 	position: relative;
 }

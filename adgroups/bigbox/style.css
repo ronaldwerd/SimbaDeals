@@ -109,7 +109,7 @@
     border-bottom: #dadada;
 }
 
-.simbaBigBox .simbaBody .nav {
+.simbaBigBox .simbaBody .simba-navigation {
     height: 12px;
     width: 26px;
 	bottom: 0px;
@@ -119,12 +119,12 @@
     position: absolute;
     z-index: 1000;
 }
-.simbaBigBox .simbaBody .nav img {
+.simbaBigBox .simbaBody .simba-navigation img {
     height: 12px;
     width: 12px;
     float: left;
 }
-.simbaBigBox .simbaBody .nav .simba-next {
+.simbaBigBox .simbaBody .simba-navigation .simba-next {
 	position: relative;
 	left: 2px;
 }
