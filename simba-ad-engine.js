@@ -14,13 +14,7 @@ simbaAdEngine = function($, _) {
             : this;
     };
 
-<<<<<<< HEAD
-=======
-    var categoryCodes = [
-        { code: 'SOME_AD_CODE', categoryId: '34635776', productCount: 5 }
-    ];
 
->>>>>>> d0090b7474c8ddac28caa19d933f972ec4f94eb2
     var findMerchant = function(merchantList, merchantId) {
         var m = $.grep(merchantList, function(m) {
             return m.id == merchantId;
