@@ -14,10 +14,6 @@ simbaAdEngine = function($, _) {
             : this;
     };
 
-    var categoryCodes = [
-        { code: 'SOME_AD_CODE', categoryId: '134217728', productCount: 5 }
-    ];
-
     var findMerchant = function(merchantList, merchantId) {
         var m = $.grep(merchantList, function(m) {
             return m.id == merchantId;
@@ -51,15 +47,15 @@ simbaAdEngine = function($, _) {
 
     var queryForProducts = function(categoryCode, callback) {
 
-        var c = $.grep(categoryCodes, function(e) {
-            return e.code == categoryCode;
-        });
+        //console.log(categoryCode);
 
-        c = c[0];
+        //if(!isNaN(categoryCode)) categoryCode = 'DEFAULT';
+
+
 
         var getProducts = function(c) {
             var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
-                        + c.categoryId + "&productLimit=" + c.productCount;
+                        + categoryCode + "&productLimit=5";
 
             $.ajax({
                 url: adUrl,
@@ -94,7 +90,7 @@ simbaAdEngine = function($, _) {
             });
         }
 
-        getProducts(c);
+        getProducts(categoryCode);
     }
 
 
