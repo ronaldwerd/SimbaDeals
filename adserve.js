@@ -1,1 +1,63 @@
-(function(){function r(){var e=["/underscore.js","/simba-ad-engine.js"];var n=0;for(var r=0;r<e.length;r++){t.getScript(e[r],function(){n++;if(n==e.length){t(document).ready(function(e){e("head").append('<link rel="stylesheet" href="/adgroups/leader/style.css" type="text/css" />');e("head").append('<link rel="stylesheet" href="/adgroups/bigbox/style.css" type="text/css" />');simbaAdEngine(e,_)})}})}}var e;var t;var n=function(e,t){var n=document.createElement("script");n.setAttribute("type","text/javascript");n.setAttribute("src",e);if(n.readyState){n.onreadystatechange=function(){if(this.readyState=="complete"||this.readyState=="loaded"){t()}}}else{n.onload=t}(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(n)};if(window.jQuery===undefined||window.jQuery.fn.jquery!=="1.11.0"){n("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",function(){t=window.jQuery.noConflict(true);r()})}else{t=window.jQuery;r()}})()
+(function() {
+
+    var engine;
+    var $;
+
+    var loadJavaScript = function(url, callback) {
+        var script_tag = document.createElement('script');
+        script_tag.setAttribute("type","text/javascript");
+        script_tag.setAttribute("src", url);
+
+        if (script_tag.readyState) {
+            script_tag.onreadystatechange = function () { // For old versions of IE
+                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                    callback();
+                }
+            };
+        } else {
+            script_tag.onload = callback;
+        }
+
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    }
+
+
+    if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.0') {
+
+        loadJavaScript("http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", function() {
+            $ = window.jQuery.noConflict(true);
+            main();
+        });
+
+    } else {
+
+        $ = window.jQuery;
+        main();
+    }
+
+
+    function main() {
+
+        /*
+         * Load any plugin scripts here
+         */
+
+        var scripts = ['http://adserve.simbadeals.ca/underscore.js', 'http://adserve.simbadeals.ca/simba-ad-engine.js'];
+        var scriptsLoaded = 0;
+
+        for(var i = 0; i < scripts.length; i++) {
+
+            $.getScript(scripts[i], function() {
+
+                scriptsLoaded++;
+
+                if(scriptsLoaded == scripts.length) {
+
+                    $(document).ready(function($) {
+                        simbaAdEngine($, _);
+                    });
+                }
+            });
+        }
+    }
+})();

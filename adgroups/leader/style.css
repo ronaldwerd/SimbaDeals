@@ -20,7 +20,7 @@
 	display: inline-block;
     height: 90px;
     width: 211px;
-    background-image: url('/adgroups/leader/leader-header.png');
+    background-image: url('http://adserve.simbadeals.ca/adgroups/leader/leader-header.png');
     background-position: center top;
     background-repeat: no-repeat;
 }
@@ -30,7 +30,7 @@
 	float: left;
     height: 90px;
     width: 37px;
-    background-image: url('/adgroups/leader/leader-footer.png');
+    background-image: url('http://adserve.simbadeals.ca/adgroups/leader/leader-footer.png');
     border-right: solid 1px #dadada;
 }
 
@@ -74,7 +74,7 @@
 	z-index: 500;
 	margin-top: 32px;
 	margin-left: 56px;
-	background-image: url('/adgroups/leader/arrow.png');
+	background-image: url('http://adserve.simbadeals.ca/adgroups/leader/adgroups/leader/arrow.png');
 }
 
 .simbaLeader .simbaBody .meta {
@@ -121,7 +121,7 @@
     height: 18px;
     width: 10px;
     margin-top: 6px;
-    background-image: url('/adgroups/leader/price-tag.png');
+    background-image: url('http://adserve.simbadeals.ca/adgroups/leader/adgroups/leader/price-tag.png');
 }
 
 .simbaLeader .simbaBody .meta-inner {
