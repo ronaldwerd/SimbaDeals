@@ -54,6 +54,20 @@
                 if(scriptsLoaded == scripts.length) {
 
                     $(document).ready(function($) {
+
+                        $("<link/>", {
+                            rel: "stylesheet",
+                            type: "text/css",
+                            href: "http://adserve.simbadeals.ca/adgroups/bigbox/style.css"
+                        }).appendTo("head");
+
+                        $("<link/>", {
+                            rel: "stylesheet",
+                            type: "text/css",
+                            href: "http://adserve.simbadeals.ca/adgroups/leader/style.css"
+                        }).appendTo("head");
+
+
                         simbaAdEngine($, _);
                     });
                 }
