@@ -90,7 +90,7 @@
     text-align: left;
 }
 
-.simbaBigBox .simbaBody .meta-inner .link {
+.simbaBigBox .simbaBody .meta-inner .simbaLink {
 	float: left;
 	color: #f24e21;
 	font-size: 10px;

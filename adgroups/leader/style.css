@@ -131,7 +131,7 @@
     text-align: left;
 }
 
-.simbaLeader .simbaBody .meta-inner .link {
+.simbaLeader .simbaBody .meta-inner .simbaLink {
 	float: left;
 	color: #f24e21;
 	font-size: 8px;
