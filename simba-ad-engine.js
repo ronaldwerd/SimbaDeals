@@ -229,7 +229,7 @@ simbaAdEngine = function($, _) {
 
                     var adBlock = adBlockCollection[i];
 
-                    var backProduct = _.template('<div class="backProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
+                    var backProduct = _.template('<div class="simbaBackProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
                     {
                         src: adBlock.imageURL,
                         alt: adBlock.name,
@@ -314,10 +314,10 @@ simbaAdEngine = function($, _) {
 
             var backProducts = renderBackProducts(adBlockCollection, clickPosition);
 
-            $('.simbaBackProducts > .backProduct').remove();
+            $('.simbaBackProducts > .simbaBackProduct').remove();
             $('.simbaBackProducts').append(backProducts, null);
 
-            $('.simbaLeader > .simbaBody > .simbaBackProducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .simbaBody > .simbaBackProducts > .simbaBackProduct').click(backProductSelect);
         }
 
 
@@ -329,7 +329,7 @@ simbaAdEngine = function($, _) {
 
             var backProducts = renderBackProducts(adBlockCollection, pos);
 
-            $('.simbaBackProducts > .backProduct').remove();
+            $('.simbaBackProducts > .simbaBackProduct').remove();
             $('.simbaBackProducts').append(backProducts, null);
 
             var adBlock = adBlockCollection[pos];
@@ -344,10 +344,10 @@ simbaAdEngine = function($, _) {
 
             $(element).attr('data-url',adBlock.deepLink);
 
-            $('.simbaLeader > .simbaBody > .simbaBackProducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .simbaBody > .simbaBackProducts > .simbaBackProduct').click(backProductSelect);
         }
 
-        $('.simbaLeader > .simbaBody > .simbaBackProducts > .backProduct').click(backProductSelect);
+        $('.simbaLeader > .simbaBody > .simbaBackProducts > .simbaBackProduct').click(backProductSelect);
 
 
         $(cycleButtonsLeader).click(cycleAdblock);

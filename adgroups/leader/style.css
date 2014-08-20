@@ -50,7 +50,7 @@
     width: 67px;
 }
 
-.simbaLeader .simbaBody .backProduct {
+.simbaLeader .simbaBody .simbaBackProduct {
     float: left;
     overflow: hidden;
     width: 67px;
@@ -60,7 +60,7 @@
 }
 
 
-.simbaLeader .simbaBody .backProduct img {
+.simbaLeader .simbaBody .simbaBackProduct img {
     float: left;
     height: 90px;
     width: 67px;
