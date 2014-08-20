@@ -92,7 +92,7 @@
     width: 100%;
 }
 
-.simbaLeader .simbaBody .simbaMeta .description {
+.simbaLeader .simbaBody .simbaMeta .simbaDescription {
     font-size: 10.5px;
     color: #3e3a3b;
     letter-spacing: 0.025em;
