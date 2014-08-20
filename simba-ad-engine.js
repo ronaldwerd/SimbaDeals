@@ -175,7 +175,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.simbaBrand')[0]).text(m.name);
             $($(adBlockElement).find('.simbaDescription')[0]).text(adBlock.name.truncate(50));
-            $($(adBlockElement).find('.price')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
+            $($(adBlockElement).find('.simbaPrice')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
 
@@ -306,7 +306,7 @@ simbaAdEngine = function($, _) {
 
             $($(adBlockElement).find('.simbaBrand')[0]).text(m.name);
             $($(adBlockElement).find('.simbaDescription')[0]).text(adBlock.name.truncate(40));
-            $($(adBlockElement).find('.price')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
+            $($(adBlockElement).find('.simbaPrice')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(adBlockElement).parent().attr('data-url', adBlock.deepLink);
 
@@ -340,7 +340,7 @@ simbaAdEngine = function($, _) {
 
             $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .simbaBrand').text(m.name);
             $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .simbaDescription').text(adBlock.name.truncate(40));
-            $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .price').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
+            $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .simbaPrice').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(element).attr('data-url',adBlock.deepLink);
 
