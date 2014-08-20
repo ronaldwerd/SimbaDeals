@@ -102,7 +102,7 @@
     width: 100%;
 }
 
-.simbaLeader .simbaBody .meta .price {
+.simbaLeader .simbaBody .meta .simbaPrice {
     display: inline-block;
     float: left;
     height: 18px !important;
@@ -115,7 +115,7 @@
     padding: 0px 3px;
     line-height: 19px;
 }
-.simbaLeader .simbaBody .meta .priceTag {
+.simbaLeader .simbaBody .meta .simbaPriceTag {
     display: inline-block;
     float: left;
     height: 18px;

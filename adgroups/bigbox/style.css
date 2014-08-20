@@ -61,7 +61,7 @@
     display: block;
 }
 
-.simbaBigBox .simbaBody .meta .price {
+.simbaBigBox .simbaBody .meta .simbaPrice {
     display: inline-block;
     float: left;
     height: 18px !important;
@@ -74,7 +74,7 @@
     padding: 0px 6px;
     line-height: 18px;
 }
-.simbaBigBox .simbaBody .meta .priceTag {
+.simbaBigBox .simbaBody .meta .simbaPriceTag {
     display: inline-block;
     float: left;
     height: 18px;
