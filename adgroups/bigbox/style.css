@@ -35,7 +35,7 @@
     width: 110px;
 }
 
-.simbaBigBox .simbaBody .meta {
+.simbaBigBox .simbaBody .simbaMeta {
     display: table;
     float: right;
     width: 188px;
@@ -45,14 +45,14 @@
     position: relative;
 }
 
-.simbaBigBox .simbaBody .meta .simbaBrand {
+.simbaBigBox .simbaBody .simbaMeta .simbaBrand {
     font-size: 10px;
     color: #3e3a3b;
     display: block;
     padding: 0px 0px 6px 0px;
 }
 
-.simbaBigBox .simbaBody .meta .description {
+.simbaBigBox .simbaBody .simbaMeta .description {
     font-size: 11.5px;
     color: #3e3a3b;
     letter-spacing: 0.025em;
@@ -61,7 +61,7 @@
     display: block;
 }
 
-.simbaBigBox .simbaBody .meta .simbaPrice {
+.simbaBigBox .simbaBody .simbaMeta .simbaPrice {
     display: inline-block;
     float: left;
     height: 18px !important;
@@ -74,7 +74,7 @@
     padding: 0px 6px;
     line-height: 18px;
 }
-.simbaBigBox .simbaBody .meta .simbaPriceTag {
+.simbaBigBox .simbaBody .simbaMeta .simbaPriceTag {
     display: inline-block;
     float: left;
     height: 18px;

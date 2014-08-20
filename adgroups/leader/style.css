@@ -77,14 +77,14 @@
 	background-image: url('http://simbadeals/adgroups/leader/adgroups/leader/arrow.png');
 }
 
-.simbaLeader .simbaBody .meta {
+.simbaLeader .simbaBody .simbaMeta {
     display: table;
     float: left;
     height: 90px;
     width: 145px;
 }
 
-.simbaLeader .simbaBody .meta .simbaBrand {
+.simbaLeader .simbaBody .simbaMeta .simbaBrand {
     font-size: 8.5px;
     color: #3e3a3b;
     display: block;
@@ -92,7 +92,7 @@
     width: 100%;
 }
 
-.simbaLeader .simbaBody .meta .description {
+.simbaLeader .simbaBody .simbaMeta .description {
     font-size: 10.5px;
     color: #3e3a3b;
     letter-spacing: 0.025em;
@@ -102,7 +102,7 @@
     width: 100%;
 }
 
-.simbaLeader .simbaBody .meta .simbaPrice {
+.simbaLeader .simbaBody .simbaMeta .simbaPrice {
     display: inline-block;
     float: left;
     height: 18px !important;
@@ -115,7 +115,7 @@
     padding: 0px 3px;
     line-height: 19px;
 }
-.simbaLeader .simbaBody .meta .simbaPriceTag {
+.simbaLeader .simbaBody .simbaMeta .simbaPriceTag {
     display: inline-block;
     float: left;
     height: 18px;
