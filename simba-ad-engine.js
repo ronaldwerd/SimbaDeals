@@ -257,7 +257,7 @@ simbaAdEngine = function($, _) {
                 '<div class="simbaMeta">' +
                     '<div class="simbaMetaInner"><%= metaData %></div>' +
                 '</div>' +
-                '<div class="backProducts"><%= backProducts %></div>' +
+                '<div class="simbaBackProducts"><%= backProducts %></div>' +
             '</div>' +
             '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection, 0) });
 
@@ -314,10 +314,10 @@ simbaAdEngine = function($, _) {
 
             var backProducts = renderBackProducts(adBlockCollection, clickPosition);
 
-            $('.backProducts > .backProduct').remove();
-            $('.backProducts').append(backProducts, null);
+            $('.simbaBackProducts > .backProduct').remove();
+            $('.simbaBackProducts').append(backProducts, null);
 
-            $('.simbaLeader > .simbaBody > .backProducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .simbaBody > .simbaBackProducts > .backProduct').click(backProductSelect);
         }
 
 
@@ -325,12 +325,12 @@ simbaAdEngine = function($, _) {
 
             var pos = parseInt($(this).attr('data-ad-block-pos'));
 
-            $('.simbaLeader > .simbaBody > .backProducts > .simbaProductContainer').remove();
+            $('.simbaLeader > .simbaBody > .simbaBackProducts > .simbaProductContainer').remove();
 
             var backProducts = renderBackProducts(adBlockCollection, pos);
 
-            $('.backProducts > .backProduct').remove();
-            $('.backProducts').append(backProducts, null);
+            $('.simbaBackProducts > .backProduct').remove();
+            $('.simbaBackProducts').append(backProducts, null);
 
             var adBlock = adBlockCollection[pos];
             var img = $.find('.simbaAdImage')[0];
@@ -344,10 +344,10 @@ simbaAdEngine = function($, _) {
 
             $(element).attr('data-url',adBlock.deepLink);
 
-            $('.simbaLeader > .simbaBody > .backProducts > .backProduct').click(backProductSelect);
+            $('.simbaLeader > .simbaBody > .simbaBackProducts > .backProduct').click(backProductSelect);
         }
 
-        $('.simbaLeader > .simbaBody > .backProducts > .backProduct').click(backProductSelect);
+        $('.simbaLeader > .simbaBody > .simbaBackProducts > .backProduct').click(backProductSelect);
 
 
         $(cycleButtonsLeader).click(cycleAdblock);
