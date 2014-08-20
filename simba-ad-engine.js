@@ -107,7 +107,7 @@ simbaAdEngine = function($, _) {
                 alt: adBlock.name
             });
 
-        var metaData = _.template('<span class="brand"><%= merchant %></span>' +
+        var metaData = _.template('<span class="simbaBrand"><%= merchant %></span>' +
                                   '<span class="description"><%= description %></span>' +
                                   '<span class="simbaPrice">$<%= price %></span><span class="simbaPriceTag">&nbsp;</span><span class="link">Save Now</span>',
                                    {
@@ -209,7 +209,7 @@ simbaAdEngine = function($, _) {
 
             });
 
-        var metaData = _.template('<span class="brand"><%= merchant %></span>' +
+        var metaData = _.template('<span class="simbaBrand"><%= merchant %></span>' +
             '<span class="description"><%= description %></span>' +
             '<span class="simbaPrice">$<%= price %></span><span class="simbaPriceTag">&nbsp;</span><span class="link">Save Now</span>',
             {
