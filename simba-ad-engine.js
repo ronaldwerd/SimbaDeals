@@ -124,7 +124,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaArrow"></div>' +
             '<%= bodyImg %>' +
             '<div class="meta"><div class="meta-inner"><%= metaData %></div>' +
-            '<div class="simba-navigation" simba-position="1"><img src="http://adserve.simbadeals.ca/adgroups/bigbox/prev-btn.png" class="simba-prev" /><img src="http://adserve.simbadeals.ca/adgroups/bigbox/next-btn.png" class="simba-next" /></div>' +
+            '<div class="simba-navigation" simba-position="1"><img src="http://simbadeals/adgroups/bigbox/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/adgroups/bigbox/next-btn.png" class="simba-next" /></div>' +
             '</div></div>' +
             '<div class="simbaFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
 
@@ -248,7 +248,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaFooter"></div>' +
             '<div class="simbaHeader">' +
                 '<div class="simba-navigation" simba-position="0">' +
-                    '<img src="http://adserve.simbadeals.ca/adgroups/leader/prev-btn.png" class="simba-prev" /><img src="http://adserve.simbadeals.ca/adgroups/leader/next-btn.png" class="simba-next" />' +
+                    '<img src="http://simbadeals/adgroups/leader/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/adgroups/leader/next-btn.png" class="simba-next" />' +
                 '</div>' +
             '</div>' +
             '<div class="simbaBody">' +
