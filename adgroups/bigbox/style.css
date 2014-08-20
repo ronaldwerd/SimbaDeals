@@ -83,14 +83,14 @@
     background-image: url('http://simbadeals/adgroups/bigbox/price-tag.png');
 }
 
-.simbaBigBox .simbaBody .meta-inner {
+.simbaBigBox .simbaBody .simbaMetaInner {
     display: table-cell;
     vertical-align: middle;
     padding: 10px;
     text-align: left;
 }
 
-.simbaBigBox .simbaBody .meta-inner .simbaLink {
+.simbaBigBox .simbaBody .simbaMetaInner .simbaLink {
 	float: left;
 	color: #f24e21;
 	font-size: 10px;

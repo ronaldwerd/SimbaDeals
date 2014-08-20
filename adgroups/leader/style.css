@@ -124,14 +124,14 @@
     background-image: url('http://simbadeals/adgroups/leader/adgroups/leader/price-tag.png');
 }
 
-.simbaLeader .simbaBody .meta-inner {
+.simbaLeader .simbaBody .simbaMetaInner {
     display: table-cell;
     vertical-align: middle;
     padding: 10px;
     text-align: left;
 }
 
-.simbaLeader .simbaBody .meta-inner .simbaLink {
+.simbaLeader .simbaBody .simbaMetaInner .simbaLink {
 	float: left;
 	color: #f24e21;
 	font-size: 8px;

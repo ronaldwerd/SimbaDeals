@@ -123,7 +123,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaBody">' +
             '<div class="simbaArrow"></div>' +
             '<%= bodyImg %>' +
-            '<div class="simbaMeta"><div class="meta-inner"><%= metaData %></div>' +
+            '<div class="simbaMeta"><div class="simbaMetaInner"><%= metaData %></div>' +
             '<div class="simba-navigation" simba-position="1"><img src="http://simbadeals/adgroups/bigbox/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/adgroups/bigbox/next-btn.png" class="simba-next" /></div>' +
             '</div></div>' +
             '<div class="simbaFooter"></div>', { bodyImg: bodyImg, metaData: metaData });
@@ -131,7 +131,7 @@ simbaAdEngine = function($, _) {
 
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
-        $(element).find('.simbaProductContainer, .meta-inner').click(function() {
+        $(element).find('.simbaProductContainer, .simbaMetaInner').click(function() {
 
             var productUrl = $(element).attr('data-url');
             location.href = productUrl;
@@ -255,7 +255,7 @@ simbaAdEngine = function($, _) {
                 '<div class="arrow"></div>' +
                 '<%= bodyImg %>' +
                 '<div class="simbaMeta">' +
-                    '<div class="meta-inner"><%= metaData %></div>' +
+                    '<div class="simbaMetaInner"><%= metaData %></div>' +
                 '</div>' +
                 '<div class="backProducts"><%= backProducts %></div>' +
             '</div>' +
@@ -264,7 +264,7 @@ simbaAdEngine = function($, _) {
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
 
-        $(element).find('.meta-inner').click(function() {
+        $(element).find('.simbaMetaInner').click(function() {
             var productUrl = $(element).attr('data-url');
             location.href = productUrl;
         });
@@ -338,9 +338,9 @@ simbaAdEngine = function($, _) {
             $(img).attr('src', adBlock.imageURL);
             $(img).attr('alt', adBlock.name);
 
-            $('.simbaLeader > .simbaBody > .simbaMeta .meta-inner .simbaBrand').text(m.name);
-            $('.simbaLeader > .simbaBody > .simbaMeta .meta-inner .simbaDescription').text(adBlock.name.truncate(40));
-            $('.simbaLeader > .simbaBody > .simbaMeta .meta-inner .price').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
+            $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .simbaBrand').text(m.name);
+            $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .simbaDescription').text(adBlock.name.truncate(40));
+            $('.simbaLeader > .simbaBody > .simbaMeta .simbaMetaInner .price').text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
             $(element).attr('data-url',adBlock.deepLink);
 
