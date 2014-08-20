@@ -1,0 +1,145 @@
+.HalfPageContainer {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    height: 600px;
+    width: 300px;
+    padding: 0px;
+    border: solid 1px #7d7d7d;
+    overflow: hidden;
+}
+.simbaHalfPage {
+    width: 300px;
+}
+
+.simbaHalfPage .simbaHeader {
+    height: 53px;
+    background-image: url('http://simbadeals/adgroups/halfpage/halfpage-header.png');
+}
+
+.simbaHalfPage .simbaFooter {
+    height: 46px;
+    background-image: url('http://simbadeals/adgroups/halfpage/halfpage-footer.png');
+    border-top: solid 1px #dadada;
+}
+
+.simbaHalfPage .simbaBody .simbaProductContainer {
+    overflow: hidden;
+    width: 91px;
+    display: inline-block;
+    cursor: pointer;
+}
+.simbaHalfPage .simbaBody img {
+    float: left;
+    height: 124px;
+    width: 90px;
+}
+
+.simbaHalfPage .simbaBody .meta {
+    display: table;
+    float: right;
+    width: 200px;
+    height: 124px;
+    padding: 0px 10px 0px 0px;
+    cursor: pointer;
+    position: relative;
+}
+
+.simbaHalfPage .simbaBody .meta .brand {
+    font-size: 10px;
+    color: #3e3a3b;
+    display: block;
+    padding: 0px 0px 6px 0px;
+}
+
+.simbaHalfPage .simbaBody .meta .description {
+    font-size: 11.5px;
+    color: #3e3a3b;
+    letter-spacing: 0.025em;
+    font-weight: 600;
+    line-height: normal;
+    display: block;
+}
+
+.simbaHalfPage .simbaBody .meta .price {
+    display: inline-block;
+    float: left;
+    height: 18px !important;
+    min-width: 34px;
+    margin-top: 10px;
+    background-color: #f24e21;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0px 6px;
+    line-height: 18px;
+}
+.simbaHalfPage .simbaBody .meta .priceTag {
+    display: inline-block;
+    float: left;
+    height: 18px;
+    width: 10px;
+    margin-top: 10px;
+    background-image: url('http://ron.ecommerland.com/adgroups/halfpage/price-tag.png');
+}
+
+.simbaHalfPage .simbaBody .meta-inner {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    text-align: left;
+}
+
+.simbaHalfPage .simbaBody .meta-inner .link {
+    float: left;
+    color: #f24e21;
+    font-size: 10px;
+    font-weight: 400;
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding-left: 4px;
+    margin-top: 12px;
+}
+
+.simbaHalfPage .simbaBody {
+    background-color: #ececec;
+    height: 500px;
+    width: 300px;
+    border-top: #dadada;
+    border-bottom: #dadada;
+}
+
+.simbaHalfPage .simbaProducts {
+    display: block;
+    border-top: solid 1px #dadada;
+}
+
+.simbaHalfPage .simbaBody .simba-navigation {
+    height: 12px;
+    width: 26px;
+    bottom: 0px;
+    margin-bottom: 5px;
+    right: 0px;
+    margin-right: 7px;
+    position: absolute;
+    z-index: 1000;
+}
+.simbaHalfPage .simbaBody .simba-navigation img {
+    height: 12px;
+    width: 12px;
+    float: left;
+}
+.simbaHalfPage .simbaBody .simba-navigation .simba-next {
+    position: relative;
+    left: 2px;
+}
+
+.simbaHalfPage .simbaBody .simbaArrow {
+    position: absolute;
+    width: 15px;
+    height: 28px;
+    float: left;
+    margin-left: 76px;
+    margin-top: 50px;
+    z-index: 9000;
+    background-image: url('http://ron.ecommerland.com/adgroups/halfpage/arrow.png');
+}

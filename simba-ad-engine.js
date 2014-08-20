@@ -356,6 +356,25 @@ simbaAdEngine = function($, _) {
         }, 4500);
     }
 
+
+    var renderHalfPageBox = function(element, merchantList, adBlockCollection) {
+
+        var template = _.template('' +
+            '<div class="HalfPageContainer">' +
+            '<div class="simbaHalfPage">' +
+            '<div class="simbaHeader"></div>' +
+            '<div class="simbaBody">' +
+            '<div class="simbaProducts">' +
+            '<span>Products!</span>' +
+            '</div>' +
+            '</div>' +
+            '<div class="simbaFooter"></div>' +
+            '</div>' +
+            '</div>');
+
+        $(element).append(template, null);
+    }
+
     function refresh() {
 
         $('div[simba-deals]').each(function() {

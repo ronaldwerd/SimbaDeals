@@ -67,6 +67,12 @@
                             href: "http://simbadeals/adgroups/leader/style.css"
                         }).appendTo("head");
 
+                        $("<link/>", {
+                            rel: "stylesheet",
+                            type: "text/css",
+                            href: "http://simbadeals/adgroups/halfpage/style.css"
+                        }).appendTo("head");
+
 
                         simbaAdEngine($, _);
                     });
