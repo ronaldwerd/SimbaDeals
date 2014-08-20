@@ -56,7 +56,7 @@ simbaAdEngine = function($, _) {
 
         var getProducts = function(c) {
             var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
-                        + categoryCode + "&productLimit=5";
+                        + categoryCode + "&productLimit=50";
 
             $.ajax({
                 url: adUrl,
@@ -193,12 +193,11 @@ simbaAdEngine = function($, _) {
 
 
 
-
-
-
+    
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[0];
+        var renderLength = adBlockCollection.length > 5 ? 5 : adBlockCollection.length;
 
         var m = findMerchant(merchantList, adBlock.merchantId);
 
@@ -223,7 +222,7 @@ simbaAdEngine = function($, _) {
 
             var backProducts = '';
 
-            for(var i = 0; i < adBlockCollection.length; i++) {
+            for(var i = 0; i < renderLength; i++) {
 
                 if(filterPos != i) {
 
@@ -282,7 +281,7 @@ simbaAdEngine = function($, _) {
 
                 clickPosition++;
 
-                if(clickPosition == adBlockCollection.length) {
+                if(clickPosition == renderLength) {
                     clickPosition = 0;
                 }
             }
@@ -378,6 +377,10 @@ simbaAdEngine = function($, _) {
 
                     if(bannerType == 'LEADER') {
                         renderLeaderBox(element, merchantList, adBlockCollection);
+                    }
+
+                    if(bannerType == 'HALF_PAGE') {
+                        renderHalfPageBox(element, merchantList, adBlockCollection);
                     }
                 }
             });
