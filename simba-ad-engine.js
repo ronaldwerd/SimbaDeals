@@ -394,11 +394,11 @@ simbaAdEngine = function($, _) {
                     '<div class="simbaProductContainer simbaLink" data-url="<%= link %>">' +
                     '<img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" />' +
                     '</div>' +
-                    '<div class="meta">' +
+                    '<div class="simbaMeta">' +
                     '<div class="meta-inner simbaLink" data-url="<%= link %>">' +
-                    '<span class="brand"><%= merchant %></span>' +
-                    '<span class="description"><%= name %></span>' +
-                    '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Save Now</span>' +
+                    '<span class="simbaBrand"><%= merchant %></span>' +
+                    '<span class="simbaDescription"><%= name %></span>' +
+                    '<span class="simbaPrice">$<%= price %></span><span class="simbaPriceTag">&nbsp;</span><span class="simbaBangLine">Save Now</span>' +
                     '</div>' +
                     '<%= nav %>' +
                     '</div>' +
