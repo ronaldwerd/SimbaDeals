@@ -428,13 +428,12 @@ simbaAdEngine = function($, _) {
 
             console.log(clickPosition);
 
+            var max = merchantList.length  / 4;
 
             if($(this).hasClass('simba-next')) {
 
-                var max = merchantList.length  / 4;
-
                 if(clickPosition >= max - 2) {
-                    alert('no more');
+                    clickPosition = 0;
                 } else {
                     clickPosition++;
                 }
@@ -445,7 +444,7 @@ simbaAdEngine = function($, _) {
                 clickPosition--;
 
                 if(clickPosition == -1) {
-                    clickPosition = 0;
+                    clickPosition = max -2;
                 }
             }
 
@@ -463,6 +462,10 @@ simbaAdEngine = function($, _) {
         }
 
         $(element).find('.simba-prev, .simba-next').click(cycleAds);
+
+        setInterval(function() {
+            $(element).find('.simba-next').trigger('click')
+        }, 4500);
     }
 
     function refresh() {
