@@ -359,20 +359,60 @@ simbaAdEngine = function($, _) {
 
     var renderHalfPageBox = function(element, merchantList, adBlockCollection) {
 
+        var productsHtml = '';
+
+
+        for(var i = 0; i < 4; i++) {
+
+
+
+            var adBlock = adBlockCollection[i];
+
+
+            var productTemplate = _.template('' +
+            '<div class="simbaArrow"></div>' +
+            '<div class="simbaProductContainer"><img class="simbaAdImage" src="" alt="" /></div>' +
+            '<div class="meta">' +
+                '<div class="meta-inner">' +
+                    '<span class="brand">Merchant Name</span>' +
+                    '<span class="description">Product description goes here for all products</span>' +
+                    '<span class="price">$100.00</span><span class="priceTag">&nbsp;</span><span class="link">Save Now</span>' +
+                '</div>' +
+            '</div>');
+
+
+
         var template = _.template('' +
             '<div class="HalfPageContainer">' +
             '<div class="simbaHalfPage">' +
             '<div class="simbaHeader"></div>' +
             '<div class="simbaBody">' +
             '<div class="simbaProducts">' +
-            '<span>Products!</span>' +
             '</div>' +
             '</div>' +
             '<div class="simbaFooter"></div>' +
             '</div>' +
             '</div>');
+        }
 
-        $(element).append(template, null);
+
+        var renderProducts = function(merchantList, adBlockCollection) {
+
+            //var merchant = findMerchant(merchantList)
+
+            console.log(element);
+
+            var res = $(element).find('.simbaBody');
+
+            $(res).append(productTemplate);
+        }
+
+
+        console.log('wherd up');
+
+        $(element).append(template);
+
+        renderProducts(merchantList, adBlockCollection)
     }
 
     function refresh() {
