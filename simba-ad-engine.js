@@ -426,8 +426,6 @@ simbaAdEngine = function($, _) {
         var cycleAds = function() {
             var clickPosition = parseInt($(element).find('.simbaHalfPage').attr('simba-position'));
 
-            console.log(clickPosition);
-
             var max = merchantList.length  / 4;
 
             if($(this).hasClass('simba-next')) {
