@@ -422,20 +422,18 @@ simbaAdEngine = function($, _) {
 
         renderProducts(merchantList, adBlockCollection, 0);
 
-        $(element).find('.simbaLink').click(function() {
-            var productUrl = $(this).attr('data-url');
-            location.href = productUrl;
-        })
 
         var cycleAds = function() {
             var clickPosition = parseInt($(element).find('.simbaHalfPage').attr('simba-position'));
 
             console.log(clickPosition);
-            console.log(merchantList.length);
+
 
             if($(this).hasClass('simba-next')) {
 
-                if(clickPosition >= merchantList.length  / 4) {
+                var max = merchantList.length  / 4;
+
+                if(clickPosition >= max - 2) {
                     alert('no more');
                 } else {
                     clickPosition++;
@@ -455,6 +453,11 @@ simbaAdEngine = function($, _) {
 
             var offset = clickPosition * 4;
             renderProducts(merchantList, adBlockCollection, offset);
+
+            $(element).find('.simbaLink').click(function() {
+                var productUrl = $(this).attr('data-url');
+                location.href = productUrl;
+            })
 
             $(element).find('.simba-prev, .simba-next').click(cycleAds);
         }
