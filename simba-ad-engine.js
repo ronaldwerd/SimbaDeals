@@ -361,7 +361,7 @@ simbaAdEngine = function($, _) {
 
         var template = _.template('' +
             '<div class="HalfPageContainer">' +
-            '<div class="simbaHalfPage">' +
+            '<div class="simbaHalfPage" simba-position="1">' +
             '<div class="simbaHeader"></div>' +
             '<div class="simbaBody">' +
             '</div>' +
@@ -380,6 +380,15 @@ simbaAdEngine = function($, _) {
 
                 var m = findMerchant(merchantList, adBlock.merchantId);
 
+                var nav = null;
+
+                if(i == 3) {
+                    nav = '<div class="simba-navigation">' +
+                              '<img src="http://ron.ecommerland.com/adgroups/halfpage/prev-btn.png" class="simba-prev">' +
+                              '<img src="http://ron.ecommerland.com/adgroups/halfpage/next-btn.png" class="simba-next">' +
+                          '</div>';
+                }
+
                 var product = _.template('' +
                     '<div class="simbaArrow"></div>' +
                     '<div class="simbaProductContainer simbaLink" data-url="<%= link %>">' +
@@ -389,12 +398,13 @@ simbaAdEngine = function($, _) {
                     '<div class="meta-inner simbaLink" data-url="<%= link %>">' +
                     '<span class="brand"><%= merchant %></span>' +
                     '<span class="description"><%= name %></span>' +
-                    '<span class="price"><%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Save Now</span>' +
+                    '<span class="price">$<%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Save Now</span>' +
                     '</div>' +
+                    '<%= nav %>' +
                     '</div>' +
                     '</div>',{ merchant: m.name,                    price: parseFloat(adBlock.salePrice).currencyFormat(2),
                                    name: adBlock.name.truncate(50),   alt: adBlock.name,
-                                    src: adBlock.imageURL,           link: adBlock.deepLink });
+                                    src: adBlock.imageURL,           link: adBlock.deepLink, nav: nav });
 
                 productsHtml += product;
             }
