@@ -359,60 +359,58 @@ simbaAdEngine = function($, _) {
 
     var renderHalfPageBox = function(element, merchantList, adBlockCollection) {
 
-        var productsHtml = '';
-
-
-        for(var i = 0; i < 4; i++) {
-
-
-
-            var adBlock = adBlockCollection[i];
-
-
-            var productTemplate = _.template('' +
-            '<div class="simbaArrow"></div>' +
-            '<div class="simbaProductContainer"><img class="simbaAdImage" src="" alt="" /></div>' +
-            '<div class="meta">' +
-                '<div class="meta-inner">' +
-                    '<span class="brand">Merchant Name</span>' +
-                    '<span class="description">Product description goes here for all products</span>' +
-                    '<span class="price">$100.00</span><span class="priceTag">&nbsp;</span><span class="link">Save Now</span>' +
-                '</div>' +
-            '</div>');
-
-
-
         var template = _.template('' +
             '<div class="HalfPageContainer">' +
             '<div class="simbaHalfPage">' +
             '<div class="simbaHeader"></div>' +
             '<div class="simbaBody">' +
-            '<div class="simbaProducts">' +
-            '</div>' +
             '</div>' +
             '<div class="simbaFooter"></div>' +
             '</div>' +
             '</div>');
-        }
 
 
         var renderProducts = function(merchantList, adBlockCollection) {
 
-            //var merchant = findMerchant(merchantList)
+            var productsHtml = '';
 
-            console.log(element);
+            for(var i = 0; i < 4; i++) {
 
-            var res = $(element).find('.simbaBody');
+                var adBlock = adBlockCollection[i];
 
-            $(res).append(productTemplate);
+                var m = findMerchant(merchantList, adBlock.merchantId);
+
+                var product = _.template('' +
+                    '<div class="simbaArrow"></div>' +
+                    '<div class="simbaProductContainer simbaLink" data-url="<%= link %>">' +
+                    '<img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" />' +
+                    '</div>' +
+                    '<div class="meta">' +
+                    '<div class="meta-inner simbaLink" data-url="<%= link %>">' +
+                    '<span class="brand"><%= merchant %></span>' +
+                    '<span class="description"><%= name %></span>' +
+                    '<span class="price"><%= price %></span><span class="priceTag">&nbsp;</span><span class="link">Save Now</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>',{ merchant: m.name,                    price: parseFloat(adBlock.salePrice).currencyFormat(2),
+                                   name: adBlock.name.truncate(50),   alt: adBlock.name,
+                                    src: adBlock.imageURL,           link: adBlock.deepLink });
+
+                productsHtml += product;
+            }
+
+            var body = $(element).find('.simbaBody');
+            $(body).append(productsHtml);
         }
-
-
-        console.log('wherd up');
 
         $(element).append(template);
 
-        renderProducts(merchantList, adBlockCollection)
+        renderProducts(merchantList, adBlockCollection);
+
+        $(element).find('.simbaLink').click(function() {
+            var productUrl = $(this).attr('data-url');
+            location.href = productUrl;
+        });
     }
 
     function refresh() {
