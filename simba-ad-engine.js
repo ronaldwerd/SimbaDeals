@@ -54,9 +54,11 @@ simbaAdEngine = function($, _) {
 
 
 
-        var getProducts = function(c) {
+        var getProducts = function(categoryCode) {
             var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
                         + categoryCode + "&productLimit=50";
+
+            console.log(adUrl);
 
             $.ajax({
                 url: adUrl,
@@ -361,7 +363,7 @@ simbaAdEngine = function($, _) {
 
         var template = _.template('' +
             '<div class="HalfPageContainer">' +
-            '<div class="simbaHalfPage" simba-position="1">' +
+            '<div class="simbaHalfPage" simba-position="0">' +
             '<div class="simbaHeader"></div>' +
             '<div class="simbaBody">' +
             '</div>' +
@@ -370,11 +372,11 @@ simbaAdEngine = function($, _) {
             '</div>');
 
 
-        var renderProducts = function(merchantList, adBlockCollection) {
+        var renderProducts = function(merchantList, adBlockCollection, offset) {
 
             var productsHtml = '';
 
-            for(var i = 0; i < 4; i++) {
+            for(var i = 0 + offset; i < 4 + offset; i++) {
 
                 var adBlock = adBlockCollection[i];
 
@@ -382,7 +384,7 @@ simbaAdEngine = function($, _) {
 
                 var nav = null;
 
-                if(i == 3) {
+                if(i == 3 + offset) {
                     nav = '<div class="simba-navigation">' +
                               '<img src="http://ron.ecommerland.com/adgroups/halfpage/prev-btn.png" class="simba-prev">' +
                               '<img src="http://ron.ecommerland.com/adgroups/halfpage/next-btn.png" class="simba-next">' +
@@ -410,17 +412,54 @@ simbaAdEngine = function($, _) {
             }
 
             var body = $(element).find('.simbaBody');
+            $(body).empty();
             $(body).append(productsHtml);
         }
 
         $(element).append(template);
 
-        renderProducts(merchantList, adBlockCollection);
+
+
+        renderProducts(merchantList, adBlockCollection, 0);
 
         $(element).find('.simbaLink').click(function() {
             var productUrl = $(this).attr('data-url');
             location.href = productUrl;
-        });
+        })
+
+        var cycleAds = function() {
+            var clickPosition = parseInt($(element).find('.simbaHalfPage').attr('simba-position'));
+
+            console.log(clickPosition);
+            console.log(merchantList.length);
+
+            if($(this).hasClass('simba-next')) {
+
+                if(clickPosition >= merchantList.length  / 4) {
+                    alert('no more');
+                } else {
+                    clickPosition++;
+                }
+            }
+
+            if($(this).hasClass('simba-prev')) {
+
+                clickPosition--;
+
+                if(clickPosition == -1) {
+                    clickPosition = 0;
+                }
+            }
+
+            $(element).find('.simbaHalfPage').attr('simba-position', clickPosition);
+
+            var offset = clickPosition * 4;
+            renderProducts(merchantList, adBlockCollection, offset);
+
+            $(element).find('.simba-prev, .simba-next').click(cycleAds);
+        }
+
+        $(element).find('.simba-prev, .simba-next').click(cycleAds);
     }
 
     function refresh() {
