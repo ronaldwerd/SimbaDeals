@@ -127,7 +127,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaArrow"></div>' +
             '<%= bodyImg %>' +
             '<div class="simbaMeta"><div class="simbaMetaInner"><%= metaData %></div>' +
-            '<div class="simba-navigation" simba-position="1"><img src="http://clientfiles.sixaces.ca/gam/bigbox/prev-btn.png" class="simba-prev" /><img src="http://clientfiles.sixaces.ca/gam/bigbox/next-btn.png" class="simba-next" /></div>' +
+            '<div class="simba-navigation" simba-position="1"><img src="http://simbadeals/gam/bigbox/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/gam/bigbox/next-btn.png" class="simba-next" /></div>' +
             '</div></div>' +
             '<div class="simbaFooter"></div>' +
             '</div>', { bodyImg: bodyImg, metaData: metaData });
@@ -181,7 +181,7 @@ simbaAdEngine = function($, _) {
             $($(adBlockElement).find('.simbaDescription')[0]).text(adBlock.name.truncate(50));
             $($(adBlockElement).find('.simbaPrice')[0]).text('$' + parseFloat(adBlock.salePrice).currencyFormat(2));
 
-            $(adBlockElement).parent().parent().parent().attr('data-url', adBlock.deepLink);
+            $(element).attr('data-url', adBlock.deepLink);
 
             $(nav).attr('simba-position', clickPosition);
 
@@ -252,7 +252,7 @@ simbaAdEngine = function($, _) {
             '<div class="simbaFooter"></div>' +
             '<div class="simbaHeader">' +
                 '<div class="simba-navigation" simba-position="0">' +
-                    '<img src="http://clientfiles.sixaces.ca/gam/leader/prev-btn.png" class="simba-prev" /><img src="http://clientfiles.sixaces.ca/gam/leader/next-btn.png" class="simba-next" />' +
+                    '<img src="http://simbadeals/gam/leader/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/gam/leader/next-btn.png" class="simba-next" />' +
                 '</div>' +
             '</div>' +
             '<div class="simbaBody">' +
@@ -390,8 +390,8 @@ simbaAdEngine = function($, _) {
 
                 if(i == 3 + offset) {
                     nav = '<div class="simba-navigation">' +
-                              '<img src="http://clientfiles.sixaces.ca/gam/halfpage/prev-btn.png" class="simba-prev">' +
-                              '<img src="http://clientfiles.sixaces.ca/gam/halfpage/next-btn.png" class="simba-next">' +
+                              '<img src="http://simbadeals/gam/halfpage/prev-btn.png" class="simba-prev">' +
+                              '<img src="http://simbadeals/gam/halfpage/next-btn.png" class="simba-next">' +
                           '</div>';
                 }
 

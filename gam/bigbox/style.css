@@ -13,13 +13,13 @@
 
 .simbaBigBox .simbaHeader {
     height: 53px;
-    background-image: url('http://clientfiles.sixaces.ca/gam/bigbox/bigbox-header.png');
+    background-image: url('http://simbadeals/gam/bigbox/bigbox-header.png');
     border-bottom: solid 1px #dadada;
 }
 
 .simbaBigBox .simbaFooter {
     height: 46px;
-    background-image: url('http://clientfiles.sixaces.ca/gam/bigbox/bigbox-footer.png');
+    background-image: url('http://simbadeals/gam/bigbox/bigbox-footer.png');
     border-top: solid 1px #dadada;
 }
 
@@ -80,7 +80,7 @@
     height: 18px;
     width: 10px;
     margin-top: 10px;
-    background-image: url('http://clientfiles.sixaces.ca/gam/bigbox/price-tag.png');
+    background-image: url('http://simbadeals/gam/bigbox/price-tag.png');
 }
 
 .simbaBigBox .simbaBody .simbaMetaInner {
@@ -137,5 +137,5 @@
 	margin-left: 96px;
 	margin-top: 60px;
 	z-index: 9000;
-	background-image: url('http://clientfiles.sixaces.ca/gam/bigbox/arrow.png');
+	background-image: url('http://simbadeals/gam/bigbox/arrow.png');
 }
