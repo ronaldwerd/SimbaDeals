@@ -12,13 +12,13 @@
 }
 
 .simbaHalfPage .simbaHeader {
-    height: 53px;
-    background-image: url('http://simbadeals/adgroups/halfpage/halfpage-header.png');
+    height: 62px;
+    background-image: url('http://clientfiles.sixaces.ca/gam/halfpage/halfpage-header.png');
 }
 
 .simbaHalfPage .simbaFooter {
-    height: 46px;
-    background-image: url('http://simbadeals/adgroups/halfpage/halfpage-footer.png');
+    height: 38px;
+    background-image: url('http://clientfiles.sixaces.ca/gam/halfpage/halfpage-footer.png');
     border-top: solid 1px #dadada;
 }
 
@@ -79,7 +79,7 @@
     height: 18px;
     width: 10px;
     margin-top: 10px;
-    background-image: url('http://ron.ecommerland.com/adgroups/halfpage/price-tag.png');
+    background-image: url('http://clientfiles.sixaces.ca/gam/halfpage/price-tag.png');
 }
 
 .simbaHalfPage .simbaBody .meta-inner {
@@ -141,5 +141,5 @@
     margin-left: 76px;
     margin-top: 50px;
     z-index: 9000;
-    background-image: url('http://ron.ecommerland.com/adgroups/halfpage/arrow.png');
+    background-image: url('http://clientfiles.sixaces.ca/gam/halfpage/arrow.png');
 }

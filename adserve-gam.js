@@ -42,7 +42,7 @@
          * Load any plugin scripts here
          */
 
-        var scripts = ['http://simbadeals/underscore.js', 'http://simbadeals/simba-ad-engine.js'];
+        var scripts = ['http://clientfiles.sixaces.ca/underscore.js', 'http://clientfiles.sixaces.ca/simba-ad-engine-gam.js'];
         var scriptsLoaded = 0;
 
         for(var i = 0; i < scripts.length; i++) {
@@ -58,19 +58,19 @@
                         $("<link/>", {
                             rel: "stylesheet",
                             type: "text/css",
-                            href: "http://simbadeals/adgroups/bigbox/style.css"
+                            href: "http://clientfiles.sixaces.ca/gam/bigbox/style.css"
                         }).appendTo("head");
 
                         $("<link/>", {
                             rel: "stylesheet",
                             type: "text/css",
-                            href: "http://simbadeals/adgroups/leader/style.css"
+                            href: "http://clientfiles.sixaces.ca/gam/leader/style.css"
                         }).appendTo("head");
 
                         $("<link/>", {
                             rel: "stylesheet",
                             type: "text/css",
-                            href: "http://simbadeals/adgroups/halfpage/style.css"
+                            href: "http://clientfiles.sixaces.ca/gam/halfpage/style.css"
                         }).appendTo("head");
 
 

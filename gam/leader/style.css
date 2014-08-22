@@ -20,7 +20,7 @@
 	display: inline-block;
     height: 90px;
     width: 211px;
-    background-image: url('http://simbadeals/adgroups/leader/leader-header.png');
+    background-image: url('http://clientfiles.sixaces.ca/gam/leader/leader-header.png');
     background-position: center top;
     background-repeat: no-repeat;
 }
@@ -30,7 +30,7 @@
 	float: left;
     height: 90px;
     width: 37px;
-    background-image: url('http://simbadeals/adgroups/leader/leader-footer.png');
+    background-image: url('http://clientfiles.sixaces.ca/gam/leader/leader-footer.png');
     border-right: solid 1px #dadada;
 }
 
@@ -74,7 +74,7 @@
 	z-index: 500;
 	margin-top: 32px;
 	margin-left: 56px;
-	background-image: url('http://simbadeals/adgroups/leader/arrow.png');
+	background-image: url('http://clientfiles.sixaces.ca/gam/leader/arrow.png');
 }
 
 .simbaLeader .simbaBody .simbaMeta {
@@ -121,7 +121,7 @@
     height: 18px;
     width: 10px;
     margin-top: 6px;
-    background-image: url('http://simbadeals/adgroups/leader/adgroups/leader/price-tag.png');
+    background-image: url('http://clientfiles.sixaces.ca/gam/leader/price-tag.png');
 }
 
 .simbaLeader .simbaBody .simbaMetaInner {
