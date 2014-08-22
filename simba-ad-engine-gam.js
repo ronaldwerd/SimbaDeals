@@ -48,12 +48,6 @@ simbaAdEngine = function($, _) {
 
     var queryForProducts = function(categoryCode, callback) {
 
-        //console.log(categoryCode);
-
-        //if(!isNaN(categoryCode)) categoryCode = 'DEFAULT';
-
-
-
         var getProducts = function(categoryCode) {
             var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
                         + categoryCode + "&productLimit=50";
@@ -133,6 +127,8 @@ simbaAdEngine = function($, _) {
             '</div>', { bodyImg: bodyImg, metaData: metaData });
 
 
+
+        $(element).empty();
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
         $(element).find('.simbaProductContainer, .simbaMetaInner').click(function() {
@@ -266,6 +262,7 @@ simbaAdEngine = function($, _) {
             '</div>' +
             '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection, 0) });
 
+        $(element).empty();
         $(element).attr('data-url',adBlock.deepLink);
         $(element).append(template, null);
 
@@ -422,12 +419,11 @@ simbaAdEngine = function($, _) {
             $(body).append(productsHtml);
         }
 
+        $(element).empty();
         $(element).append(template);
 
 
-
         renderProducts(merchantList, adBlockCollection, 0);
-
 
         var cycleAds = function() {
             var clickPosition = parseInt($(element).find('.simbaHalfPage').attr('simba-position'));
