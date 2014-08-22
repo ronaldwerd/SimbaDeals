@@ -26,13 +26,16 @@
 .simbaBigBox .simbaBody .simbaProductContainer {
     overflow: hidden;
     width: 111px;
+    height: 149px;
     display: inline-block;
     cursor: pointer;
+    background-color: white;
+    padding-top: 10px;
 }
-.simbaBigBox .simbaBody img {
+.simbaBigBox .simbaBody .simbaAdImage {
     float: left;
-    height: 149px;
-    width: 110px;
+    max-width:100%;
+    max-height:100%
 }
 
 .simbaBigBox .simbaBody .simbaMeta {

@@ -62,8 +62,8 @@
 
 .simbaLeader .simbaBody .simbaBackProduct img {
     float: left;
-    height: 90px;
-    width: 67px;
+    max-width:100%;
+    max-height:100%
 }
 
 
