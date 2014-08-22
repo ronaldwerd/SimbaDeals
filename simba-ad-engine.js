@@ -26,14 +26,20 @@ simbaAdEngine = function($, _) {
     }
 
     var shrinkToFit = function() {
-        $('img.simbaAdImage').each(function(i, item) {
+
+        console.log('shrink it');
+
+        $('.simbaAdImage').each(function(i, item) {
             var img_height = $(item).height();
             var div_height = $(item).parent().height();
-            if(img_height<div_height){
+
+            console.log(img_height);
+
+            if(img_height < div_height) {
                 //IMAGE IS SHORTER THAN CONTAINER HEIGHT - CENTER IT VERTICALLY
                 var newMargin = (div_height-img_height)/2+'px';
                 $(item).css({'margin-top': newMargin });
-            }else if(img_height>div_height){
+            } else if(img_height > div_height){
                 //IMAGE IS GREATER THAN CONTAINER HEIGHT - REDUCE HEIGHT TO CONTAINER MAX - SET WIDTH TO AUTO
                 $(item).css({'width': 'auto', 'height': '100%'});
                 //CENTER IT HORIZONTALLY
@@ -386,8 +392,8 @@ simbaAdEngine = function($, _) {
 
                 if(i == 3 + offset) {
                     nav = '<div class="simba-navigation">' +
-                              '<img src="http://ron.ecommerland.com/adgroups/halfpage/prev-btn.png" class="simba-prev">' +
-                              '<img src="http://ron.ecommerland.com/adgroups/halfpage/next-btn.png" class="simba-next">' +
+                              '<img src="http://localhost/adgroups/halfpage/prev-btn.png" class="simba-prev">' +
+                              '<img src="http://localhost/adgroups/halfpage/next-btn.png" class="simba-next">' +
                           '</div>';
                 }
 
@@ -414,6 +420,8 @@ simbaAdEngine = function($, _) {
             var body = $(element).find('.simbaBody');
             $(body).empty();
             $(body).append(productsHtml);
+
+            shrinkToFit();
         }
 
         $(element).append(template);
