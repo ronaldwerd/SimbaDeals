@@ -164,7 +164,7 @@ simbaAdEngine = function($, _) {
         $(cycleButtons).click(cycleAdblock);
 
         setInterval(function() {
-            $(element).find('.simba-next').trigger('click')
+            //$(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 
@@ -230,7 +230,6 @@ simbaAdEngine = function($, _) {
                 '</div>' +
             '</div>' +
             '<div class="simbaBody">' +
-                '<div class="arrow"></div>' +
                 '<%= bodyImg %>' +
                 '<div class="simbaMeta">' +
                     '<div class="simbaMetaInner"><%= metaData %></div>' +
@@ -333,7 +332,7 @@ simbaAdEngine = function($, _) {
         $(cycleButtonsLeader).click(cycleAdblock);
 
         setInterval(function() {
-            $(element).find('.simba-next').trigger('click')
+            //$(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 
@@ -442,7 +441,7 @@ simbaAdEngine = function($, _) {
         $(element).find('.simba-prev, .simba-next').click(cycleAds);
 
         setInterval(function() {
-            $(element).find('.simba-next').trigger('click')
+            //$(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 

@@ -24,7 +24,7 @@
 
 .simbaHalfPage .simbaBody .simbaProductContainer {
     overflow: hidden;
-    width: 91px;
+    width: 90px;
     display: inline-block;
     cursor: pointer;
 }
@@ -35,7 +35,7 @@
 }
 
 .simbaHalfPage .simbaBody .simbaMeta {
-    display: table;
+    display: inline-block;
     float: right;
     width: 200px;
     height: 124px;
@@ -143,4 +143,10 @@
     margin-top: 50px;
     z-index: 9000;
     background-image: url('http://simbadeals/gam/halfpage/arrow.png');
+}
+
+.simbaHalfPage .simbaBody .simbaAdImage {
+    float: left;
+    max-width:100%;
+    max-height:100%;
 }
