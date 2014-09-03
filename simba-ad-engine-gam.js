@@ -25,12 +25,34 @@ simbaAdEngine = function($, _) {
         return m;
     }
 
+    var shrinkToFit = function() {
+        $('img.simbaAdImage').each(function(i, item) {
+            var img_height = $(item).height();
+            var div_height = $(item).parent().height();
+            if(img_height<div_height){
+                //IMAGE IS SHORTER THAN CONTAINER HEIGHT - CENTER IT VERTICALLY
+                var newMargin = (div_height-img_height)/2+'px';
+                $(item).css({'margin-top': newMargin });
+            }else if(img_height>div_height){
+                //IMAGE IS GREATER THAN CONTAINER HEIGHT - REDUCE HEIGHT TO CONTAINER MAX - SET WIDTH TO AUTO
+                $(item).css({'width': 'auto', 'height': '100%'});
+                //CENTER IT HORIZONTALLY
+                var img_width = $(item).width();
+                var div_width = $(item).parent().width();
+                var newMargin = (div_width-img_width)/2+'px';
+                $(item).css({'margin-left': newMargin});
+            }
+        });
+    }
+
 
     var queryForProducts = function(categoryCode, callback) {
 
         var getProducts = function(categoryCode) {
-            var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/widget/category?isoCurrencyCode=CAD&categoryId="
-                        + categoryCode + "&productLimit=50";
+            var adUrl = "http://shop.monetizer101.com/shop-rest/api/v2.0/shop/594/widget/category?isoCurrencyCode=CAD&categoryId="
+                + categoryCode + "&productLimit=24";
+
+            console.log(adUrl);
 
             $.ajax({
                 url: adUrl,
@@ -49,7 +71,7 @@ simbaAdEngine = function($, _) {
 
         var getMerchantList = function(productData, callback) {
 
-            var merchantListUrl = 'http://shop.monetizer101.com/shop-rest/api/v2.0/shop/2/merchant/list?isoCurrencyCode=CAD';
+            var merchantListUrl = 'http://shop.monetizer101.com/shop-rest/api/v2.0/shop/594/merchant/list?isoCurrencyCode=CAD';
 
             $.ajax({
                 url: merchantListUrl,
@@ -82,27 +104,27 @@ simbaAdEngine = function($, _) {
             });
 
         var metaData = _.template('<span class="simbaBrand"><%= merchant %></span>' +
-                                  '<span class="simbaDescription"><%= description %></span>' +
-                                  '<span class="simbaPrice">$<%= price %></span><span class="simbaPriceTag">&nbsp;</span><span class="simbaLink">Save Now</span>',
-                                   {
-                                     merchant: m.name,
-                                     description: adBlock.name.truncate(50),
-                                     price: parseInt(adBlock.salePrice).currencyFormat(2)
-                                   });
+            '<span class="simbaDescription"><%= description %></span>' +
+            '<span class="simbaPrice">$<%= price %></span><span class="simbaPriceTag">&nbsp;</span><span class="simbaLink">Save Now</span>',
+            {
+                merchant: m.name,
+                description: adBlock.name.truncate(50),
+                price: parseInt(adBlock.salePrice).currencyFormat(2)
+            });
 
 
         var template = _.template(
-        	'<div class="BigBoxContainer">' +
-            '<div class="simbaBigBox">' +
-            '<div class="simbaHeader"></div>' +
-            '<div class="simbaBody">' +
-            '<div class="simbaArrow"></div>' +
-            '<%= bodyImg %>' +
-            '<div class="simbaMeta"><div class="simbaMetaInner"><%= metaData %></div>' +
-            '<div class="simba-navigation" simba-position="1"><img src="http://simbadeals/gam/bigbox/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/gam/bigbox/next-btn.png" class="simba-next" /></div>' +
-            '</div></div>' +
-            '<div class="simbaFooter"></div>' +
-            '</div>', { bodyImg: bodyImg, metaData: metaData });
+            '<div class="BigBoxContainer">' +
+                '<div class="simbaBigBox">' +
+                '<div class="simbaHeader"></div>' +
+                '<div class="simbaBody">' +
+                '<div class="simbaArrow"></div>' +
+                '<%= bodyImg %>' +
+                '<div class="simbaMeta"><div class="simbaMetaInner"><%= metaData %></div>' +
+                '<div class="simba-navigation" simba-position="1"><img src="http://clientfiles.sixaces.ca/dj/bigbox/prev-btn.png" class="simba-prev" /><img src="http://clientfiles.sixaces.ca/dj/bigbox/next-btn.png" class="simba-next" /></div>' +
+                '</div></div>' +
+                '<div class="simbaFooter"></div>' +
+                '</div>', { bodyImg: bodyImg, metaData: metaData });
 
 
 
@@ -164,14 +186,14 @@ simbaAdEngine = function($, _) {
         $(cycleButtons).click(cycleAdblock);
 
         setInterval(function() {
-            //$(element).find('.simba-next').trigger('click')
+            $(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 
 
 
 
-    
+
     var renderLeaderBox = function(element, merchantList, adBlockCollection) {
 
         var adBlock = adBlockCollection[0];
@@ -207,11 +229,11 @@ simbaAdEngine = function($, _) {
                     var adBlock = adBlockCollection[i];
 
                     var backProduct = _.template('<div class="simbaBackProduct" data-ad-block-pos="<%= pos %>" ><img src="<%=src %>" alt="<%= alt %>" /></div>',
-                    {
-                        src: adBlock.imageURL,
-                        alt: adBlock.name,
-                        pos: i
-                    });
+                        {
+                            src: adBlock.imageURL,
+                            alt: adBlock.name,
+                            pos: i
+                        });
 
                     backProducts += backProduct;
                 }
@@ -221,23 +243,24 @@ simbaAdEngine = function($, _) {
         }
 
         var template = _.template(
-        	'<div class="LeaderContainer">' +
-            '<div class="simbaLeader">' +
-            '<div class="simbaFooter"></div>' +
-            '<div class="simbaHeader">' +
+            '<div class="LeaderContainer">' +
+                '<div class="simbaLeader">' +
+                '<div class="simbaFooter"></div>' +
+                '<div class="simbaHeader">' +
                 '<div class="simba-navigation" simba-position="0">' +
-                    '<img src="http://simbadeals/gam/leader/prev-btn.png" class="simba-prev" /><img src="http://simbadeals/gam/leader/next-btn.png" class="simba-next" />' +
+                '<img src="http://clientfiles.sixaces.ca/dj/leader/prev-btn.png" class="simba-prev" /><img src="http://clientfiles.sixaces.ca/dj/leader/next-btn.png" class="simba-next" />' +
                 '</div>' +
-            '</div>' +
-            '<div class="simbaBody">' +
+                '</div>' +
+                '<div class="simbaBody">' +
+                '<div class="arrow"></div>' +
                 '<%= bodyImg %>' +
                 '<div class="simbaMeta">' +
-                    '<div class="simbaMetaInner"><%= metaData %></div>' +
+                '<div class="simbaMetaInner"><%= metaData %></div>' +
                 '</div>' +
                 '<div class="simbaBackProducts"><%= backProducts %></div>' +
-            '</div>' +
-            '</div>' +
-            '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection, 0) });
+                '</div>' +
+                '</div>' +
+                '</div>', { metaData: metaData, bodyImg: bodyImg, backProducts: renderBackProducts(adBlockCollection, 0) });
 
         $(element).empty();
         $(element).attr('data-url',adBlock.deepLink);
@@ -332,7 +355,7 @@ simbaAdEngine = function($, _) {
         $(cycleButtonsLeader).click(cycleAdblock);
 
         setInterval(function() {
-            //$(element).find('.simba-next').trigger('click')
+            $(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 
@@ -364,15 +387,15 @@ simbaAdEngine = function($, _) {
 
                 if(i == 3 + offset) {
                     nav = '<div class="simba-navigation">' +
-                              '<img src="http://simbadeals/gam/halfpage/prev-btn.png" class="simba-prev">' +
-                              '<img src="http://simbadeals/gam/halfpage/next-btn.png" class="simba-next">' +
-                          '</div>';
+                        '<img src="http://clientfiles.sixaces.ca/dj/halfpage/prev-btn.png" class="simba-prev">' +
+                        '<img src="http://clientfiles.sixaces.ca/dj/halfpage/next-btn.png" class="simba-next">' +
+                        '</div>';
                 }
 
                 var product = _.template('' +
                     '<div class="simbaProducts">' +
                     '<div class="simbaArrow"></div>' +
-                    '<div class="simbaProductContainer simbaLink" data-url="<%= link %>">' +
+                    '<div class="simbaLink" data-url="<%= link %>">' +
                     '<img class="simbaAdImage" src="<%= src %>" alt="<%= alt %>" />' +
                     '</div>' +
                     '<div class="simbaMeta">' +
@@ -384,9 +407,9 @@ simbaAdEngine = function($, _) {
                     '<%= nav %>' +
                     '</div>' +
                     '</div>'+
-                    '</div>',{ merchant: m.name,                    price: parseFloat(adBlock.salePrice).currencyFormat(2),
-                                   name: adBlock.name.truncate(50),   alt: adBlock.name,
-                                    src: adBlock.imageURL,           link: adBlock.deepLink, nav: nav });
+                    '</div><div style="clear: both;"></div>',{ merchant: m.name,                    price: parseFloat(adBlock.salePrice).currencyFormat(2),
+                    name: adBlock.name.truncate(50),   alt: adBlock.name,
+                    src: adBlock.imageURL,           link: adBlock.deepLink, nav: nav });
 
                 productsHtml += product;
             }
@@ -441,7 +464,7 @@ simbaAdEngine = function($, _) {
         $(element).find('.simba-prev, .simba-next').click(cycleAds);
 
         setInterval(function() {
-            //$(element).find('.simba-next').trigger('click')
+            $(element).find('.simba-next').trigger('click')
         }, 4500);
     }
 
@@ -474,6 +497,8 @@ simbaAdEngine = function($, _) {
                 }
             });
         });
+
+        shrinkToFit();
     }
 
     refresh();

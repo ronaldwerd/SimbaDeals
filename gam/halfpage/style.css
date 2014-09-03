@@ -13,21 +13,22 @@
 
 .simbaHalfPage .simbaHeader {
     height: 62px;
-    background-image: url('http://simbadeals/gam/halfpage/halfpage-header.png');
+    background-image: url('http://clientfiles.sixaces.ca/dj/halfpage/halfpage-header.png');
 }
 
 .simbaHalfPage .simbaFooter {
     height: 38px;
-    background-image: url('http://simbadeals/gam/halfpage/halfpage-footer.png');
+    background-image: url('http://clientfiles.sixaces.ca/dj/halfpage/halfpage-footer.png');
     border-top: solid 1px #dadada;
 }
 
-.simbaHalfPage .simbaBody .simbaProductContainer {
+.simbaHalfPage .simbaBody .simbaLink {
     overflow: hidden;
-    width: 90px;
+    width: 91px;
     display: inline-block;
     cursor: pointer;
 }
+
 .simbaHalfPage .simbaBody img {
     float: left;
     height: 124px;
@@ -35,7 +36,7 @@
 }
 
 .simbaHalfPage .simbaBody .simbaMeta {
-    display: inline-block;
+    display: table;
     float: right;
     width: 200px;
     height: 124px;
@@ -66,7 +67,7 @@
     height: 18px !important;
     min-width: 34px;
     margin-top: 10px;
-    background-color: #f24e21;
+    background-color: #c00925;
     color: white;
     font-weight: 500;
     font-size: 12px;
@@ -79,7 +80,7 @@
     height: 18px;
     width: 10px;
     margin-top: 10px;
-    background-image: url('http://simbadeals/gam/halfpage/price-tag.png');
+    background-image: url('http://clientfiles.sixaces.ca/dj/halfpage/price-tag.png');
 }
 
 .simbaHalfPage .simbaBody .meta-inner {
@@ -91,7 +92,7 @@
 
 .simbaHalfPage .simbaBody .meta-inner .simbaBangLine {
     float: left;
-    color: #f24e21;
+    color: #c00925;
     font-size: 10px;
     font-weight: 400;
     text-decoration: underline;
@@ -128,7 +129,6 @@
     width: 12px;
     float: left;
 }
-
 .simbaHalfPage .simbaBody .simba-navigation .simba-next {
     position: relative;
     left: 2px;
@@ -142,11 +142,5 @@
     margin-left: 76px;
     margin-top: 50px;
     z-index: 9000;
-    background-image: url('http://simbadeals/gam/halfpage/arrow.png');
-}
-
-.simbaHalfPage .simbaBody .simbaAdImage {
-    float: left;
-    max-width:100%;
-    max-height:100%;
+    background-image: url('http://clientfiles.sixaces.ca/dj/halfpage/arrow.png');
 }
