@@ -406,10 +406,10 @@ simbaAdEngine = function($, _) {
                     '</div>' +
                     '<%= nav %>' +
                     '</div>' +
-                    '</div>'+
-                    '</div><div style="clear: both;"></div>',{ merchant: m.name,                    price: parseFloat(adBlock.salePrice).currencyFormat(2),
-                    name: adBlock.name.truncate(50),   alt: adBlock.name,
-                    src: adBlock.imageURL,           link: adBlock.deepLink, nav: nav });
+                    '</div>',{ merchant: m.name,                price: parseFloat(adBlock.salePrice).currencyFormat(2),
+                               name: adBlock.name.truncate(50), alt: adBlock.name,
+                               src: adBlock.imageURL,           link: adBlock.deepLink,
+                               nav: nav });
 
                 productsHtml += product;
             }
